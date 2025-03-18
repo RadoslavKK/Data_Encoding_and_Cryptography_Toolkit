@@ -1,9 +1,9 @@
-#include "base64Encoding.h"
-#include "readBase64CharacterSet.h" // Fro getting the Base64 character set used for encoding
+#include "base62Encoding.h"
+#include "readBase62CharacterSet.h" // For getting the Base62 character set used for encoding
 #include <iostream>
-// #include <bitset>
+#include <bitset>
 
-std::string base64Encoding(std::string data)
+std::string base62Encoding(std::string data)
 {
     std::string inputText = data;
 
@@ -11,10 +11,10 @@ std::string base64Encoding(std::string data)
     bool userLogs = false;
     bool adminLogs = false;
 
-    // std::cout << "\nUser Input : \"" << inputText << "\"\n";
-    // std::cout << "Number of Characters : " << inputText.length() << "\n\n";
+    std::cout << "\nUser Input : \"" << inputText << "\"\n";
+    std::cout << "Number of Characters : " << inputText.length() << "\n\n";
 
-    char inputCharacther = ' ';
+    char inputCharacter = ' ';
 
     // Store the binary representation of the input text
     std::string binaryStream = "";
@@ -22,15 +22,15 @@ std::string base64Encoding(std::string data)
     // Convert each character in the inputText to its binary (ASCII) representation
     for (unsigned short counterLength = 0; counterLength < inputText.length(); counterLength++)
     {
-        inputCharacther = inputText[counterLength];
+        inputCharacter = inputText[counterLength];
 
         // Print Admin Log
         if (adminLogs == true)
         {
-            std::cout << inputCharacther << "\n";
+            std::cout << inputCharacter << "\n";
         }
 
-        std::bitset<8> binary(inputCharacther);
+        std::bitset<8> binary(inputCharacter);
 
         // Print Admin Log
         if (adminLogs == true)
@@ -56,7 +56,6 @@ std::string base64Encoding(std::string data)
 
     if (paddingCount > 0)
     {
-
         // Print User Log
         if (userLogs == true)
         {
@@ -84,26 +83,26 @@ std::string base64Encoding(std::string data)
     }
 
     unsigned short binaryStreamSize = 6;
-    std::string shortBinaryStrem = "";
+    std::string shortBinaryStream = "";
     unsigned int decimalNumber = 0;
 
-    // Base64 character set used for encoding
-    std::string base64CharacterSet = readBase64CharacterSet();
+    // Base62 character set used for encoding
+    std::string base62CharacterSet = readBase62CharacterSet();
     std::string finalStream = "";
     char app = ' ';
 
     // Loop through the binaryStream in 6-bit chunks
     for (unsigned short startPoint = 0; startPoint < binaryStream.length(); startPoint += 6)
     {
-        shortBinaryStrem = binaryStream.substr(startPoint, binaryStreamSize);
+        shortBinaryStream = binaryStream.substr(startPoint, binaryStreamSize);
 
         // Print Admin Log
         if (adminLogs == true)
         {
-            std::cout << " = " << shortBinaryStrem << "\n";
+            std::cout << " = " << shortBinaryStream << "\n";
         }
 
-        decimalNumber = std::stoi(shortBinaryStrem, nullptr, 2);
+        decimalNumber = std::stoi(shortBinaryStream, nullptr, 2);
 
         // Print Admin Log
         if (adminLogs == true)
@@ -111,21 +110,11 @@ std::string base64Encoding(std::string data)
             std::cout << " == " << decimalNumber << "\n\n";
         }
 
-        app = base64CharacterSet[decimalNumber];
+        app = base62CharacterSet[decimalNumber % 62];
         finalStream.append(1, app);
     }
 
-    // Append '=' padding based on the original padding count
-    if (charPadding == 2)
-    {
-        finalStream.append("==");
-    }
-    else if (charPadding == 4)
-    {
-        finalStream.append("=");
-    }
-
-    base64CharacterSet = "";
+    base62CharacterSet = "";
 
     return finalStream;
 }

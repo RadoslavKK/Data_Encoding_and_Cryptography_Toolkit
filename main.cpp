@@ -7,6 +7,8 @@ This toolkit is currently in the development phase, with support for:
 
 - Dynamic memory allocation
 - SHA-256
+- Base62 Encoder
+- Base62 Decoder
 - URL shortener
 - MAKE
 - Binary, Hex, Decimal - Converters
@@ -18,7 +20,7 @@ ________________________________________________________________________________
 How to Run:
 In the Terminal copy/paste:
 
-clang++ main.cpp base64Encoding.cpp printMenu.cpp base64EncodingTest.cpp getRandomNumberInMinMaxScope.cpp checkOS.cpp base64Decoding.cpp readBase64CharacterSet.cpp -o myProgram
+clang++ main.cpp base64Encoding.cpp printMenu.cpp base64EncodingTest.cpp getRandomNumberInMinMaxScope.cpp checkOS.cpp base64Decoding.cpp readBase64CharacterSet.cpp base62Encoding.cpp readBase62CharacterSet.cpp -o myProgram
 
 ./myProgram
 
@@ -48,9 +50,13 @@ ________________________________________________________________________________
 #include "getRandomNumberInMinMaxScope.h"
 #include "checkOS.h"
 #include "base64Decoding.h"
+#include "base62Encoding.h"
 
 int main(void)
 {
+
+    std::cout << "TT&";
+
     // Program Start Options Switch
     bool checkOSAbiluty = true;
     bool checkOSOnProgramStart = false;
@@ -127,7 +133,7 @@ int main(void)
             // std::cout << "Base64 Decode Test Output : \"" <<  << "\"\n";
         }
 
-        if (menuInput == "encode")
+        if (menuInput == "encode64")
         {
             std::cout << "\nEncode to Base64 format (Simply enter your data then push the Enter/Return button) : ";
 
@@ -140,7 +146,20 @@ int main(void)
                       << std::endl;
         }
 
-        if (menuInput == "decode")
+        if (menuInput == "encode62")
+        {
+            std::cout << "\nEncode to Base62 format (Simply enter your data then push the Enter/Return button) : ";
+
+            // Capture user input
+            std::getline(std::cin, inputText);
+
+            // Base64 Encoding
+            outputText = base62Encoding(inputText);
+            std::cout << "Base62 Encoded Output : \"" << outputText << "\"\n"
+                      << std::endl;
+        }
+
+        if (menuInput == "decode64")
         {
             std::cout << "\nDecode Base64 format (Simply enter your data then push the Enter/Return button) : ";
 

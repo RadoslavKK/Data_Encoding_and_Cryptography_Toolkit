@@ -1,16 +1,16 @@
-#include "readBase64CharacterSet.h"
+#include "readBase62CharacterSet.h"
 #include <iostream>
 #include <fstream>
 #include <sstream>
 #include <stdexcept>
 
-std::string readBase64CharacterSet()
+std::string readBase62CharacterSet()
 {
     std::string content = "";
 
     try
     {
-        std::ifstream file("data64.txt"); // Open the file
+        std::ifstream file("data62.txt"); // Open the file
         if (!file)
         {
             throw std::runtime_error("Error opening file!");
@@ -26,14 +26,14 @@ std::string readBase64CharacterSet()
 
         switch (contentLength)
         {
-        case 64:
+        case 62:
             return content;
 
         case 0:
             return "Error: Key not found";
 
         default:
-            if (contentLength != 64)
+            if (contentLength != 62)
             {
                 return "Error: Not a valid key length";
             }
