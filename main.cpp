@@ -55,8 +55,6 @@ ________________________________________________________________________________
 int main(void)
 {
 
-    std::cout << "TT&";
-
     // Program Start Options Switch
     bool checkOSAbiluty = true;
     bool checkOSOnProgramStart = false;
@@ -77,13 +75,15 @@ int main(void)
         osName = checkOS();
     }
 
-    // Options Switch Log
-    //  if (runBase64EncodingTestOnProgramStart == true)
-    //  {
+    // Base64 Encode and Decode Test at Start of Program
+    // Step 1 : Generate Random String print it on the Screen
+    // Step 2 : Encode in Base64 and  Prnt on Screen
+    // Step 3 : Decode in Base64 and Print
+    std::cout << "\n";
     std::string testDataOutputInProgramStart = base64EncodingTest();
-    std::cout << "Base64 Encoded Test Output : \"" << testDataOutputInProgramStart << "\"\n";
 
-    // }
+    std::cout << "Random Base64 Encode Output : \"" << testDataOutputInProgramStart << "\"\n";
+    std::cout << "\nBase64 Decode : " << testDataOutputInProgramStart << " : \"" << base64Decoding(testDataOutputInProgramStart) << "\"\n" << std::endl;
 
     // Options Switch Log
     if (printMenuOnProgramStart == true)
@@ -123,6 +123,10 @@ int main(void)
 
         // Rewrite
         // Make the test a sepret ethod and call it in the beggining of the program.
+
+        //_________________________________________
+
+        /*
         if (menuInput == "test")
         {
             testDataOutputInProgramStart = base64EncodingTest();
@@ -132,6 +136,8 @@ int main(void)
             // testDataOutputInProgramStart = base64Decoding(testDataOutputInProgramStart);
             // std::cout << "Base64 Decode Test Output : \"" <<  << "\"\n";
         }
+        */
+        //_________________________________________
 
         if (menuInput == "encode64")
         {
