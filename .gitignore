@@ -1,0 +1,10 @@
+# Ignore everything
+*
+
+# Allow .cpp, .h, and .txt files
+!*.cpp
+!*.h
+!*.txt
+
+# Allow .gitignore itself
+!.gitignore
