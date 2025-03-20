@@ -11,9 +11,6 @@ std::string base62Encoding(std::string data)
     bool userLogs = false;
     bool adminLogs = false;
 
-    std::cout << "\nUser Input : \"" << inputText << "\"\n";
-    std::cout << "Number of Characters : " << inputText.length() << "\n\n";
-
     char inputCharacter = ' ';
 
     // Store the binary representation of the input text

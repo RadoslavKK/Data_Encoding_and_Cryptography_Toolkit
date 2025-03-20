@@ -20,7 +20,7 @@ ________________________________________________________________________________
 How to Run:
 In the Terminal copy/paste:
 
-clang++ main.cpp base64Encoding.cpp printMenu.cpp base64EncodingTest.cpp getRandomNumberInMinMaxScope.cpp checkOS.cpp base64Decoding.cpp readBase64CharacterSet.cpp base62Encoding.cpp readBase62CharacterSet.cpp -o myProgram
+clang++ main.cpp base64Encoding.cpp printMenu.cpp base64EncodingTest.cpp getRandomNumberInMinMaxScope.cpp checkOS.cpp base64Decoding.cpp readBase64CharacterSet.cpp base62Encoding.cpp readBase62CharacterSet.cpp removeSpaces.cpp isValidBinary.cpp binaryToConverter.cpp -o myProgram
 
 ./myProgram
 
@@ -51,6 +51,9 @@ ________________________________________________________________________________
 #include "checkOS.h"
 #include "base64Decoding.h"
 #include "base62Encoding.h"
+#include "removeSpaces.h"
+#include "isValidBinary.h"
+#include "binaryToConverter.h"
 
 int main(void)
 {
@@ -83,7 +86,8 @@ int main(void)
     std::string testDataOutputInProgramStart = base64EncodingTest();
 
     std::cout << "Random Base64 Encode Output : \"" << testDataOutputInProgramStart << "\"\n";
-    std::cout << "\nBase64 Decode : " << testDataOutputInProgramStart << " : \"" << base64Decoding(testDataOutputInProgramStart) << "\"\n" << std::endl;
+    std::cout << "\nBase64 Decode : " << testDataOutputInProgramStart << " : \"" << base64Decoding(testDataOutputInProgramStart) << "\"\n"
+              << std::endl;
 
     // Options Switch Log
     if (printMenuOnProgramStart == true)
@@ -178,8 +182,34 @@ int main(void)
                       << std::endl;
         }
 
+        if (menuInput == "binary")
+        {
+            binaryToConverter();
+        }
+
+        if (menuInput == "isbinary")
+        {
+            std::cout << "\nEnter a binary string (without spaces): ";
+
+            std::string isBinary = "";
+            // Capture user input
+            std::getline(std::cin, isBinary);
+
+            isBinary = removeSpaces(isBinary);
+
+            if (isValidBinary(isBinary))
+            {
+                std::cout << ("\nValid Binary\n\n");
+            }
+            else
+            {
+                std::cout << ("\nNot a Valid Binary\n\n");
+            }
+        }
+
         if (menuInput == "exit")
         {
+            std::cout << std::endl;
             // Exit loop
             break;
         }

@@ -7,8 +7,6 @@
 std::string base64Decoding(std::string data)
 {
     std::string inputText = data;
-    // std::cout << "\nUser Input : \"" << inputText << "\"\n";
-    // std::cout << "Number of Characters : " << inputText.length() << "\n\n";
 
     std::string base64CharacterSet = readBase64CharacterSet();
     std::string base64CharactherStream = "";
