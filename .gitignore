@@ -1,10 +1,15 @@
 # Ignore everything
 *
 
-# Allow .cpp, .h, and .txt files
+# Allow source, header, and text files
 !*.cpp
 !*.h
 !*.txt
 
-# Allow .gitignore itself
+# Allow important project files
 !.gitignore
+!Makefile
+!README.md
+
+# Allow these patterns to apply recursively in subdirectories
+!*/
