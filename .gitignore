@@ -1,15 +1,30 @@
-# Ignore everything
-*
 
-# Allow source, header, and text files
-!*.cpp
-!*.h
-!*.txt
+# Build and output directories
+/build/
+/bin/
+*.o
+*.obj
+*.exe
+*.out
+*.a
+*.so
+*.dll
 
-# Allow important project files
-!.gitignore
-!Makefile
-!README.md
+# Logs and temporary files
+*.log
+*.tmp
+
+# IDE and system files
+.vscode/
+.idea/
+*.swp
+*~
+*.DS_Store
+Thumbs.db
+
+# Docs (optional compiled outputs)
+docs/html/
+docs/*.pdf
 
 # Allow these patterns to apply recursively in subdirectories
 !*/
