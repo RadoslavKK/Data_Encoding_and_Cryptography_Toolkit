@@ -13,6 +13,9 @@ make clean
 
 // ____________________________ Include Header Files. ____________________________
 
+// User Input Command Corrector
+#include "commandCorrector.h"
+
 // Print the Time
 #include "timePrinter.h"
 
@@ -38,10 +41,25 @@ make clean
 // Base64 Decoder
 #include "base64Decoder.h"
 
+// ____________ bin, oct, dec, hex Valitation. ____________
+
+// Binary Code Validation
+#include "binaryValidator.h"
+
+// Hex Code Valitation
+#include "hexValidator.h"
+
+// ____________ /bin, oct, dec, hex Valitation. ____________
+
+// Convert Binary to Oct, Dec, Hex
+#include "binaryToConverter.h"
+
 // ____________________________ /Include Header Files. ____________________________
 
 int main(int argc, char *argv[])
 {
+    const std::string const_ToolKitVersion = "Encoding ToolKit++ Ver. 2.0";
+
     // Print current time
     TimePrinter time;
     time.printTime();
@@ -94,6 +112,8 @@ int main(int argc, char *argv[])
         // Remove white space from User Input
         menuInput = remover.removeSpaces(menuInput);
 
+        menuInput = correctCommand(menuInput);
+
         if (menuInput == "menu")
         {
             printMenu();
@@ -113,6 +133,8 @@ int main(int argc, char *argv[])
         }
         else if (menuInput == "encode64")
         {
+            inputText = "";
+
             filePath = paths.getBase64KeyPath();
             result = reader.read(filePath);
             // std::cout << "Base64 File Contents : \"" << result << "\"" << std::endl;
@@ -142,12 +164,14 @@ int main(int argc, char *argv[])
                       << std::endl;
 
             result = "";
+            inputText = "";
             outputText = "";
             filePath = "";
             key = false;
         }
         else if (menuInput == "decode64")
         {
+            inputText = "";
 
             filePath = paths.getBase64KeyPath();
             result = reader.read(filePath);
@@ -179,11 +203,14 @@ int main(int argc, char *argv[])
 
             result = "";
             outputText = "";
+            inputText = "";
             filePath = "";
             key = false;
         }
         else if (menuInput == "encode62")
         {
+            inputText = "";
+
             filePath = paths.getBase62KeyPath();
             result = reader.read(filePath);
             // std::cout << "Base62 File Contents : \"" << result << "\"" << std::endl;
@@ -202,12 +229,65 @@ int main(int argc, char *argv[])
             {
                 std::cout << "Not a Valid Base62 Key\n";
             }
+
+            inputText = "";
         }
         else if (menuInput == "decode62")
         {
         }
+        else if (menuInput == "binary")
+        {
+            inputText = "";
+            std::cout << "\nEnter a binary string (without spaces) : ";
+
+            // Capture user input
+            std::getline(std::cin, inputText);
+
+            inputText = remover.removeSpaces(inputText);
+
+            if (isValidBinary(inputText))
+            {
+                std::cout << ("\nValid Binary\n\n");
+            }
+            else
+            {
+                std::cout << ("\nNot a Valid Binary\n\n");
+            }
+
+            binaryConvertor(inputText);
+
+            inputText = "";
+        }
+        else if (menuInput == "hex")
+        {
+            inputText = "";
+            std::cout << "\nEnter a hex string (without spaces) : ";
+
+            // Capture user input
+            std::getline(std::cin, inputText);
+
+            inputText = remover.removeSpaces(inputText);
+
+            if (isValidHex(inputText))
+            {
+                std::cout << ("\nValid Hex\n\n");
+            }
+            else
+            {
+                std::cout << ("\nNot a Valid Hex\n\n");
+            }
+
+            inputText = "";
+        }
         else if (menuInput == "exit")
         {
+        }
+        else if (menuInput == "version")
+        {
+            // Clear the Buffer
+            std::cout << "\n"
+                      << const_ToolKitVersion << "\n"
+                      << std::endl;
         }
 
         // If Not a Valid Command
