@@ -4,5 +4,6 @@
 // Prints the Encoding Toolkit++ menu to the console
 void printMenu();
 void printHelp();
+void printAllCommands();
 
 #endif 

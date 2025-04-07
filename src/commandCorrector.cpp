@@ -9,45 +9,89 @@ std::map<std::string, std::string> createCommandCorrections()
     std::map<std::string, std::string> map;
 
     // menu
-    map["meun"] = "menu"; map["mneu"] = "menu"; map["mnue"] = "menu";
-    map["mennu"] = "menu"; map["menuu"] = "menu"; map["men"] = "menu"; map["meu"] = "menu";
+    map["meun"] = "menu";
+    map["mneu"] = "menu";
+    map["mnue"] = "menu";
+    map["mennu"] = "menu";
+    map["menuu"] = "menu";
+    map["men"] = "menu";
+    map["meu"] = "menu";
 
     // exit
-    map["exiit"] = "exit"; map["exut"] = "exit"; map["exti"] = "exit";
-    map["exi"] = "exit"; map["eexit"] = "exit"; map["exir"] = "exit"; map["exot"] = "exit";
+    map["exiit"] = "exit";
+    map["exut"] = "exit";
+    map["exti"] = "exit";
+    map["exi"] = "exit";
+    map["eexit"] = "exit";
+    map["exir"] = "exit";
+    map["exot"] = "exit";
 
     // version
-    map["verion"] = "version"; map["versoin"] = "version"; map["vesrion"] = "version";
-    map["versin"] = "version"; map["verison"] = "version"; map["versio"] = "version";
-    map["ver"] = "version"; map["verson"] = "version"; map["veersion"] = "version";
+    map["verion"] = "version";
+    map["versoin"] = "version";
+    map["vesrion"] = "version";
+    map["versin"] = "version";
+    map["verison"] = "version";
+    map["versio"] = "version";
+    map["ver"] = "version";
+    map["verson"] = "version";
+    map["veersion"] = "version";
 
     // help
-    map["hepl"] = "help"; map["hlep"] = "help"; map["hlpe"] = "help";
-    map["hellp"] = "help"; map["hep"] = "help"; map["elhp"] = "help"; map["hell"] = "help";
+    map["hepl"] = "help";
+    map["hlep"] = "help";
+    map["hlpe"] = "help";
+    map["hellp"] = "help";
+    map["hep"] = "help";
+    map["elhp"] = "help";
+    map["hell"] = "help";
 
     // time
-    map["tiem"] = "time"; map["tme"] = "time"; map["tmie"] = "time"; map["tim"] = "time"; map["timee"] = "time";
+    map["tiem"] = "time";
+    map["tme"] = "time";
+    map["tmie"] = "time";
+    map["tim"] = "time";
+    map["timee"] = "time";
 
-    // date
-    map["daet"] = "date"; map["dtae"] = "date"; map["dte"] = "date";
-    map["datee"] = "date"; map["datt"] = "date"; map["dat"] = "date";
+    // date → time
+    map["date"] = "time";
+    map["daet"] = "time";
+    map["dtae"] = "time";
+    map["dte"] = "time";
+    map["datee"] = "time";
+    map["datt"] = "time";
+    map["dat"] = "time";
 
-    // clean
-    map["claen"] = "clean"; map["cleen"] = "clean"; map["claan"] = "clean";
-    map["clea"] = "clean"; map["clan"] = "clean"; map["clena"] = "clean"; map["cleean"] = "clean";
+    // clean → clear
+    map["clean"] = "clear";
+    map["claen"] = "clear";
+    map["cleen"] = "clear";
+    map["claan"] = "clear";
+    map["clea"] = "clear";
+    map["clan"] = "clear";
+    map["clena"] = "clear";
+    map["cleean"] = "clear";
 
-    // clear
-    map["claer"] = "clear"; map["cleer"] = "clear"; map["cclear"] = "clear";
-    map["clera"] = "clear"; map["clearn"] = "clear"; map["clea"] = "clear";
+    // clear (also reinforce common mistypes)
+    map["claer"] = "clear";
+    map["cleer"] = "clear";
+    map["cclear"] = "clear";
+    map["clera"] = "clear";
+    map["clearn"] = "clear";
 
-    // cls
-    map["clz"] = "cls"; map["clx"] = "cls"; map["cs"] = "cls";
-    map["csl"] = "cls"; map["clsx"] = "cls"; map["clzz"] = "cls";
+    // cls → clear
+    map["cls"] = "clear";
+    map["clz"] = "clear";
+    map["clx"] = "clear";
+    map["cs"] = "clear";
+    map["csl"] = "clear";
+    map["clsx"] = "clear";
+    map["clzz"] = "clear";
 
     return map;
 }
 
-std::string correctCommand(const std::string& command)
+std::string correctCommand(const std::string &command)
 {
     static const std::map<std::string, std::string> commandCorrections = createCommandCorrections();
 

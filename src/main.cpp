@@ -35,6 +35,9 @@ make clean
 #include "base64KeyValidator.h"
 #include "base62KeyValidator.h"
 
+// Base62 Encoder
+#include "base62Encoder.h"
+
 // Base64 Encoder
 #include "base64Encoder.h"
 
@@ -121,6 +124,10 @@ int main(int argc, char *argv[])
         else if (menuInput == "help")
         {
             printHelp();
+        }
+        else if (menuInput == "all")
+        {
+            printAllCommands();
         }
         else if (menuInput == "clear")
         {
@@ -223,14 +230,27 @@ int main(int argc, char *argv[])
 
             if (key)
             {
-                std::cout << "Valid Base62 Key\n";
+                std::cout << "\nValid Base62 Key\n";
             }
             else
             {
-                std::cout << "Not a Valid Base62 Key\n";
+                std::cout << "\nNot a Valid Base62 Key\n";
             }
 
+            std::cout << "\nEncode a String to Base62 (Simply enter your data then push the Enter/Return button) : ";
+
+            // Capture user input
+            std::getline(std::cin, inputText);
+
+            outputText = base62Encoder(inputText, result);
+            std::cout << "\n\"" << inputText << "\" to Base62 : \"" << outputText << "\"\n"
+                      << std::endl;
+
+            result = "";
             inputText = "";
+            outputText = "";
+            filePath = "";
+            key = false;
         }
         else if (menuInput == "decode62")
         {
