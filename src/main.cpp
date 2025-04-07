@@ -16,6 +16,9 @@ make clean
 // User Input Command Corrector
 #include "commandCorrector.h"
 
+// User Command Input to ENUM
+#include "commandType.h"
+
 // Print the Time
 #include "timePrinter.h"
 
@@ -116,6 +119,34 @@ int main(int argc, char *argv[])
         menuInput = remover.removeSpaces(menuInput);
 
         menuInput = correctCommand(menuInput);
+
+        /*
+
+        // Translate User Command Input to ENUM
+        CommandType command = getCommandType(menuInput);
+
+        switch (command)
+        {
+        case CMD_MENU:
+            printMenu();
+            break;
+        case CMD_HELP:
+            printHelp();
+            break;
+        case CMD_ALL:
+            printAllCommands();
+            break;
+        case CMD_CLEAR:
+            system("clear");
+            break;
+        case CMD_EXIT:
+            std::cout << "Exiting...\n";
+            return 0;
+        default:
+            std::cout << "Unknown command. Type 'menu' or 'help'.\n";
+        }
+        
+        */
 
         if (menuInput == "menu")
         {
