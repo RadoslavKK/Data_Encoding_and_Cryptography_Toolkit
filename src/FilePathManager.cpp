@@ -1,4 +1,4 @@
-#include "FilePathManager.h"
+#include "filePathManager.h"
 
 // Private constructor
 FilePathManager::FilePathManager() : base64KeyPath(""), base62KeyPath("") {}

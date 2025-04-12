@@ -14,11 +14,11 @@ void TimePrinter::printTime()
     std::tm *localTime = std::localtime(&now);
 
     // Print the time in YYYY-MM-DD HH:MM:SS format
-    std::cout << "Current time: "
+    std::cout << "\nCurrent time: "
               << (1900 + localTime->tm_year) << "-"
               << (1 + localTime->tm_mon) << "-"
               << localTime->tm_mday << " "
               << localTime->tm_hour << ":"
               << localTime->tm_min << ":"
-              << localTime->tm_sec << std::endl;
+              << localTime->tm_sec << "\n "<< std::endl;
 };

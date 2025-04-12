@@ -2,7 +2,7 @@
 #include <string>
 
 // Base64 and Base62 Key File's Path
-#include "FilePathManager.h"
+#include "filePathManager.h"
 
 // Open and Read Files
 #include "fileReader.h"

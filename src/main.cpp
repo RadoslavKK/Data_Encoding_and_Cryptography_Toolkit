@@ -39,12 +39,10 @@ ____________________________ How to Run the Program. ___________________________
 #include "fileReader.h"
 
 // Base64 and Base62 Key File's Path
-#include "FilePathManager.h"
+#include "filePathManager.h"
 
 // Remove white space from key
 #include "removeSpaces.h"
-
-// ____________________________ /Include Header Files. ____________________________
 
 // Start Base62 Encoder
 #include "executeBase62Encoder.h"
@@ -54,6 +52,9 @@ ____________________________ How to Run the Program. ___________________________
 
 // Start Base64 Decoder
 #include "executeBase64Decoder.h"
+
+// Star a Base64 Encode & Decoder Test
+#include "executeBase64Test.h"
 
 // Start Binary to Oct, Dec, Hex Convertor
 #include "executeBinary.h"
@@ -65,23 +66,61 @@ int main(int argc, char *argv[])
 {
     const std::string const_ToolKitVersion = "Encoding ToolKit++ Ver. 2.0";
 
-    // Print current time
-    TimePrinter time;
-    time.printTime();
-
     // ____________________________ Set key file paths. ____________________________
     FilePathManager::getInstance().setBase64KeyPath("/Users/radoslavkostov/Documents/Repositories/C++/EncodingToolkit++/keys/base64Key.txt");
     FilePathManager::getInstance().setBase62KeyPath("/Users/radoslavkostov/Documents/Repositories/C++/EncodingToolkit++/keys/base62Key.txt");
     // ____________________________ Set key file paths. ____________________________
 
-    // Store File Path for (Base64/Base62) key storage fikes
-    std::string filePath = "";
+    // Create obj to Print current time
+    TimePrinter time;
 
     // Create obj to Read Files.
     FileReader reader;
 
     // Create obj to Remove White Space
     StringFormatter remover;
+
+    // ____________________________ Program Print Config Options ____________________________
+
+    bool clearScreenAtProgramStart = true;
+
+    if (clearScreenAtProgramStart)
+    {
+        // ANSI escape codes for clearing screen
+        std::cout << "\033[2J\033[H";
+    }
+
+    // ______________________________________________________________________________________
+
+    bool runBase64TestAsprogramStart = true;
+
+    if (runBase64TestAsprogramStart)
+    {
+        executeBase64Test();
+    }
+
+    // ______________________________________________________________________________________
+
+    bool printTimeAtProgramStart = true;
+
+    if (printTimeAtProgramStart)
+    {
+        time.printTime();
+    }
+
+    // ______________________________________________________________________________________
+
+    bool printMenuAtProgramStart = true;
+
+    if (printMenuAtProgramStart)
+    {
+        printMenu();
+    }
+
+    // ______________________________________________________________________________________
+
+    // Store File Path for (Base64/Base62) key storage files
+    std::string filePath = "";
 
     //________________________________________________________
 
@@ -99,10 +138,7 @@ int main(int argc, char *argv[])
     // Store User Input for Menu Options
     std::string menuInput = "";
 
-    // ANSI escape codes for clearing screen
-    std::cout << "\033[2J\033[H";
-    printMenu();
-
+    // Store Original User Input for Menu Options Before : White Space Remover & To Lower Case
     std::string originalUserInput = "";
 
     do
@@ -169,6 +205,10 @@ int main(int argc, char *argv[])
 
         case CMD_HEX:
             executeHex();
+            break;
+
+        case CMD_TEST:
+            executeBase64Test();
             break;
 
         case CMD_VERSION:

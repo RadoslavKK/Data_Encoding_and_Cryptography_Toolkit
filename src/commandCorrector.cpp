@@ -45,6 +45,13 @@ std::map<std::string, std::string> createCommandCorrections()
     map["a1l"] = "all";
     map["all1"] = "all";
 
+    // test
+    map["test"] = "test";
+    map["test"] = "test";
+    map["ttst"] = "test";
+    map["tst"] = "test";
+    map["tet"] = "test";
+
     // exit
     map["exit"] = "exit";
     map["exitt"] = "exit";
