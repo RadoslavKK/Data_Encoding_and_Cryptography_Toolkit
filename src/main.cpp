@@ -64,7 +64,7 @@ ____________________________ How to Run the Program. ___________________________
 
 int main(int argc, char *argv[])
 {
-    const std::string const_ToolKitVersion = "Encoding ToolKit++ Ver. 2.0";
+    const std::string const_ToolKitVersion = "Encoding ToolKit++ Ver. 2.0.0 -beta.1";
 
     // ____________________________ Set key file paths. ____________________________
     FilePathManager::getInstance().setBase64KeyPath("/Users/radoslavkostov/Documents/Repositories/C++/EncodingToolkit++/keys/base64Key.txt");
