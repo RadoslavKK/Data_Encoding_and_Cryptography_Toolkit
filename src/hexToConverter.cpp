@@ -1,5 +1,5 @@
-#include "binaryValidator.h"
-#include "binaryToConverter.h"
+#include "hexValidator.h"
+#include "hexToConverter.h"
 #include "toLowerCase.h"
 
 #include <iostream>
@@ -8,27 +8,37 @@
 #include <stdexcept>
 #include <sstream>
 
-void binaryConvertor(const std::string &binaryString)
+void hexConverter(const std::string &hexString)
 {
-    std::string result = binaryString;
+    std::string result = hexString;
 
     result = toLowerCase(result);
 
-    // Remove optional "0b" or "0B" prefix
-    if (binaryString.length() >= 2 && binaryString[0] == '0' &&
-        (binaryString[1] == 'b' || binaryString[1] == 'B'))
+    // Remove optional "0x" or "0X" prefix
+    if (hexString.length() >= 2 && hexString[0] == '0' &&
+        (hexString[1] == 'x' || hexString[1] == 'X'))
     {
-        result = binaryString.substr(2);
+        result = hexString.substr(2);
     }
 
-    if (isValidBinary(result))
+    if (isValidHex(result))
     {
-        unsigned long long convertedValue = std::bitset<64>(result).to_ullong();
+        unsigned long long convertedValue = 0;
+
+        try
+        {
+            convertedValue = std::stoull(result, nullptr, 16);
+        }
+        catch (const std::exception &e)
+        {
+            std::cout << "Conversion error: " << e.what() << "\n";
+            return;
+        }
 
         std::cout << "\nChoose conversion option:\n";
-        std::cout << "1. Decimal\n";
-        std::cout << "2. Hexadecimal\n";
-        std::cout << "3. Octal\n";
+        std::cout << "1. Binary\n";
+        std::cout << "2. Octal\n";
+        std::cout << "3. Decimal\n";
         std::cout << "4. Exit\n";
 
         int choice = 0;
@@ -42,21 +52,21 @@ void binaryConvertor(const std::string &binaryString)
 
                 if (std::cin.fail())
                 {
-                    throw std::invalid_argument("\nInvalid input. Please enter a number.");
+                    throw std::invalid_argument("Invalid input. Please enter a number.");
                 }
 
                 switch (choice)
                 {
                 case 1:
-                    std::cout << "\nDecimal: " << convertedValue << "\n";
+                    std::cout << "\nBinary: " << std::bitset<64>(convertedValue) << "\n";
                     break;
 
                 case 2:
-                    std::cout << "\nHexadecimal: " << std::hex << convertedValue << std::dec << "\n";
+                    std::cout << "\nOctal: " << std::oct << convertedValue << std::dec << "\n";
                     break;
 
                 case 3:
-                    std::cout << "\nOctal: " << std::oct << convertedValue << std::dec << "\n";
+                    std::cout << "\nDecimal: " << convertedValue << "\n";
                     break;
 
                 case 4:
@@ -77,7 +87,7 @@ void binaryConvertor(const std::string &binaryString)
     }
     else
     {
-        std::cout << "Invalid binary input.\n"
+        std::cout << "Invalid hexadecimal input.\n"
                   << std::endl;
     }
 }

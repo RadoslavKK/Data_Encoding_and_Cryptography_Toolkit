@@ -8,10 +8,13 @@
 // Hex Code Valitation
 #include "hexValidator.h"
 
+// Convert Hexadecimal to Bin, Oct, Dec
+#include "hexToConverter.h"
+
 void executeHex()
 {
     std::string inputText = "";
-    std::cout << "\nEnter a hex string (without spaces) : ";
+    std::cout << "\nEnter a hexadecimal string (without spaces) : ";
 
     // Capture user input
     std::getline(std::cin, inputText);
@@ -27,6 +30,8 @@ void executeHex()
     {
         std::cout << ("\nNot a Valid Hex\n\n");
     }
+
+    hexConverter(inputText);
 
     inputText = "";
 }
