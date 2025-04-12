@@ -1,17 +1,24 @@
-#include <iostream>
-
 /*
-____________________________ How to Run. ____________________________
+____________________________ How to Run the Program. ____________________________
 
-Open a Terminal
+1. Open a Terminal window.
 
-cd EncodingToolkit++
-make
-make run
-make clean
+2. Navigate to the project directory:
+   cd EncodingToolkit++    // Change to the project directory.
+
+3. Build the program:
+   make                    // Compile the project and generate the executable.
+
+4. Run the program:
+   make run                // Execute the program.
+
+5. Clean the build files:
+   make clean              // Remove compiled files and clean up the project.
 */
 
 // ____________________________ Include Header Files. ____________________________
+
+#include <iostream>
 
 // User Input Command Corrector
 #include "commandCorrector.h"
@@ -29,13 +36,15 @@ make clean
 #include "fileReader.h"
 
 // Base64 and Base62 Key File's Path
-#include "filePath.h"
+#include "FilePathManager.h"
 
 // Remove white space from key
 #include "removeSpaces.h"
 
 // Validate the Base64 Key
 #include "base64KeyValidator.h"
+
+// Validate the Base62 Key
 #include "base62KeyValidator.h"
 
 // Base62 Encoder
@@ -62,6 +71,18 @@ make clean
 
 // ____________________________ /Include Header Files. ____________________________
 
+// Start Base62 Encoder
+#include "executeBase62Encoder.h"
+
+// Start Base64 Encoder
+#include "executeBase64Encoder.h"
+
+// Start Base64 Decoder
+#include "executeBase64Decoder.h"
+
+// Start Binary to Oct, Dec, Hex Convertor
+#include "executeBinary.h"
+
 int main(int argc, char *argv[])
 {
     const std::string const_ToolKitVersion = "Encoding ToolKit++ Ver. 2.0";
@@ -71,9 +92,8 @@ int main(int argc, char *argv[])
     time.printTime();
 
     // ____________________________ Set key file paths. ____________________________
-    FilePath paths;
-    paths.setBase64KeyPath("/Users/radoslavkostov/Documents/Repositories/C++/EncodingToolkit++/keys/base64Key.txt");
-    paths.setBase62KeyPath("/Users/radoslavkostov/Documents/Repositories/C++/EncodingToolkit++/keys/base62Key.txt");
+    FilePathManager::getInstance().setBase64KeyPath("/Users/radoslavkostov/Documents/Repositories/C++/EncodingToolkit++/keys/base64Key.txt");
+    FilePathManager::getInstance().setBase62KeyPath("/Users/radoslavkostov/Documents/Repositories/C++/EncodingToolkit++/keys/base62Key.txt");
     // ____________________________ Set key file paths. ____________________________
 
     // Store File Path for (Base64/Base62) key storage fikes
@@ -97,9 +117,6 @@ int main(int argc, char *argv[])
 
     // Store Result
     std::string result = "";
-
-    // Store if Valid (Base64/Base62) key
-    bool key = false;
 
     // Store User Input for Menu Options
     std::string menuInput = "";
@@ -145,7 +162,7 @@ int main(int argc, char *argv[])
         default:
             std::cout << "Unknown command. Type 'menu' or 'help'.\n";
         }
-        
+
         */
 
         if (menuInput == "menu")
@@ -171,143 +188,23 @@ int main(int argc, char *argv[])
         }
         else if (menuInput == "encode64")
         {
-            inputText = "";
-
-            filePath = paths.getBase64KeyPath();
-            result = reader.read(filePath);
-            // std::cout << "Base64 File Contents : \"" << result << "\"" << std::endl;
-
-            result = remover.removeSpaces(result);
-            // std::cout << "Base64 File Contents : \"" << result << "\"" << std::endl;
-
-            Base64KeyValidator keyValidator64;
-            key = keyValidator64.validate64(result);
-
-            if (key)
-            {
-                std::cout << "\nValid Base64 Key\n";
-            }
-            else
-            {
-                std::cout << "\nNot a Valid Base64 Key\n";
-            }
-
-            std::cout << "\nEncode a String to Base64 (Simply enter your data then push the Enter/Return button) : ";
-
-            // Capture user input
-            std::getline(std::cin, inputText);
-
-            outputText = base64Encoder(inputText, result);
-            std::cout << "\n\"" << inputText << "\" to Base64 : \"" << outputText << "\"\n"
-                      << std::endl;
-
-            result = "";
-            inputText = "";
-            outputText = "";
-            filePath = "";
-            key = false;
+            executeBase64Encoder();
         }
         else if (menuInput == "decode64")
         {
-            inputText = "";
-
-            filePath = paths.getBase64KeyPath();
-            result = reader.read(filePath);
-            // std::cout << "Base64 File Contents : \"" << result << "\"" << std::endl;
-
-            result = remover.removeSpaces(result);
-            // std::cout << "Base64 File Contents : \"" << result << "\"" << std::endl;
-
-            Base64KeyValidator keyValidator64;
-            key = keyValidator64.validate64(result);
-
-            if (key)
-            {
-                std::cout << "\nValid Base64 Key\n";
-            }
-            else
-            {
-                std::cout << "\nNot a Valid Base64 Key\n";
-            }
-
-            std::cout << "\nDecode a Base64 String (Simply enter your data then push the Enter/Return button) : ";
-
-            // Capture user input
-            std::getline(std::cin, inputText);
-
-            outputText = base64Decoder(inputText, result);
-            std::cout << "\nFrom Base64 : \"" << inputText << "\" to Readable : \"" << outputText << "\"\n"
-                      << std::endl;
-
-            result = "";
-            outputText = "";
-            inputText = "";
-            filePath = "";
-            key = false;
+            executeBase64Decoder();
         }
         else if (menuInput == "encode62")
         {
-            inputText = "";
-
-            filePath = paths.getBase62KeyPath();
-            result = reader.read(filePath);
-            // std::cout << "Base62 File Contents : \"" << result << "\"" << std::endl;
-
-            result = remover.removeSpaces(result);
-            // std::cout << "Base62 File Contents : \"" << result << "\"" << std::endl;
-
-            Base62KeyValidator keyValidator62;
-            key = keyValidator62.validate62(result);
-
-            if (key)
-            {
-                std::cout << "\nValid Base62 Key\n";
-            }
-            else
-            {
-                std::cout << "\nNot a Valid Base62 Key\n";
-            }
-
-            std::cout << "\nEncode a String to Base62 (Simply enter your data then push the Enter/Return button) : ";
-
-            // Capture user input
-            std::getline(std::cin, inputText);
-
-            outputText = base62Encoder(inputText, result);
-            std::cout << "\n\"" << inputText << "\" to Base62 : \"" << outputText << "\"\n"
-                      << std::endl;
-
-            result = "";
-            inputText = "";
-            outputText = "";
-            filePath = "";
-            key = false;
+            executeBase62Encoder();
         }
         else if (menuInput == "decode62")
         {
+            // Add soon.
         }
         else if (menuInput == "binary")
         {
-            inputText = "";
-            std::cout << "\nEnter a binary string (without spaces) : ";
-
-            // Capture user input
-            std::getline(std::cin, inputText);
-
-            inputText = remover.removeSpaces(inputText);
-
-            if (isValidBinary(inputText))
-            {
-                std::cout << ("\nValid Binary\n\n");
-            }
-            else
-            {
-                std::cout << ("\nNot a Valid Binary\n\n");
-            }
-
-            binaryConvertor(inputText);
-
-            inputText = "";
+            executeBinary();
         }
         else if (menuInput == "hex")
         {
