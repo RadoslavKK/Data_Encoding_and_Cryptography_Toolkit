@@ -2,11 +2,11 @@
 
 CommandType getCommandType(const std::string& input)
 {
-    if(input == "")             return CMD_EMPTY;
+    if (input == "")            return CMD_EMPTY;
     if (input == "menu")        return CMD_MENU;
     if (input == "help")        return CMD_HELP;
     if (input == "all")         return CMD_ALL;
-    if(input == "time")         return CMD_TIME;
+    if (input == "time")        return CMD_TIME;
     if (input == "exit")        return CMD_EXIT;
     if (input == "clear")       return CMD_CLEAR;
     if (input == "version")     return CMD_VERSION;

@@ -29,4 +29,4 @@ public:
     std::string getBase62KeyPath() const;
 };
 
-#endif // FILE_PATH_MANAGER_H
+#endif
