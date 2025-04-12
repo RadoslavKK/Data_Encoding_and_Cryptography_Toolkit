@@ -20,6 +20,9 @@ ____________________________ How to Run the Program. ___________________________
 
 #include <iostream>
 
+// User Input to Lower Case
+#include "toLowerCase.h"
+
 // User Input Command Corrector
 #include "commandCorrector.h"
 
@@ -41,34 +44,6 @@ ____________________________ How to Run the Program. ___________________________
 // Remove white space from key
 #include "removeSpaces.h"
 
-// Validate the Base64 Key
-#include "base64KeyValidator.h"
-
-// Validate the Base62 Key
-#include "base62KeyValidator.h"
-
-// Base62 Encoder
-#include "base62Encoder.h"
-
-// Base64 Encoder
-#include "base64Encoder.h"
-
-// Base64 Decoder
-#include "base64Decoder.h"
-
-// ____________ bin, oct, dec, hex Valitation. ____________
-
-// Binary Code Validation
-#include "binaryValidator.h"
-
-// Hex Code Valitation
-#include "hexValidator.h"
-
-// ____________ /bin, oct, dec, hex Valitation. ____________
-
-// Convert Binary to Oct, Dec, Hex
-#include "binaryToConverter.h"
-
 // ____________________________ /Include Header Files. ____________________________
 
 // Start Base62 Encoder
@@ -82,6 +57,9 @@ ____________________________ How to Run the Program. ___________________________
 
 // Start Binary to Oct, Dec, Hex Convertor
 #include "executeBinary.h"
+
+// Star Hex
+#include "executeHex.h"
 
 int main(int argc, char *argv[])
 {
@@ -125,6 +103,8 @@ int main(int argc, char *argv[])
     std::cout << "\033[2J\033[H";
     printMenu();
 
+    std::string originalUserInput = "";
+
     do
     {
         std::cout << ">>> ";
@@ -132,117 +112,79 @@ int main(int argc, char *argv[])
 
         std::getline(std::cin, menuInput);
 
+        originalUserInput = menuInput;
+
         // Remove white space from User Input
         menuInput = remover.removeSpaces(menuInput);
 
-        menuInput = correctCommand(menuInput);
+        // User Input to Lower Case
+        menuInput = toLowerCase(menuInput);
 
-        /*
+        // User Input Spell Checker
+        menuInput = correctCommand(menuInput);
 
         // Translate User Command Input to ENUM
         CommandType command = getCommandType(menuInput);
 
         switch (command)
         {
+        case CMD_EMPTY:
+            break;
+
         case CMD_MENU:
             printMenu();
             break;
+
         case CMD_HELP:
             printHelp();
             break;
+
         case CMD_ALL:
             printAllCommands();
             break;
+
+        case CMD_TIME:
+            time.printTime();
+            break;
+
         case CMD_CLEAR:
             system("clear");
             break;
-        case CMD_EXIT:
-            std::cout << "Exiting...\n";
-            return 0;
-        default:
-            std::cout << "Unknown command. Type 'menu' or 'help'.\n";
-        }
 
-        */
-
-        if (menuInput == "menu")
-        {
-            printMenu();
-        }
-        else if (menuInput == "help")
-        {
-            printHelp();
-        }
-        else if (menuInput == "all")
-        {
-            printAllCommands();
-        }
-        else if (menuInput == "clear")
-        {
-            // ANSI escape codes for clearing screen
-            std::cout << "\033[2J\033[H";
-        }
-        else if (menuInput == "time")
-        {
-            time.printTime();
-        }
-        else if (menuInput == "encode64")
-        {
-            executeBase64Encoder();
-        }
-        else if (menuInput == "decode64")
-        {
-            executeBase64Decoder();
-        }
-        else if (menuInput == "encode62")
-        {
+        case CMD_ENCODE62:
             executeBase62Encoder();
-        }
-        else if (menuInput == "decode62")
-        {
-            // Add soon.
-        }
-        else if (menuInput == "binary")
-        {
+            break;
+
+        case CMD_ENCODE64:
+            executeBase64Encoder();
+            break;
+
+        case CMD_DECODE64:
+            executeBase64Decoder();
+            break;
+
+        case CMD_BINARY:
             executeBinary();
-        }
-        else if (menuInput == "hex")
-        {
-            inputText = "";
-            std::cout << "\nEnter a hex string (without spaces) : ";
+            break;
 
-            // Capture user input
-            std::getline(std::cin, inputText);
+        case CMD_HEX:
+            executeHex();
+            break;
 
-            inputText = remover.removeSpaces(inputText);
-
-            if (isValidHex(inputText))
-            {
-                std::cout << ("\nValid Hex\n\n");
-            }
-            else
-            {
-                std::cout << ("\nNot a Valid Hex\n\n");
-            }
-
-            inputText = "";
-        }
-        else if (menuInput == "exit")
-        {
-        }
-        else if (menuInput == "version")
-        {
+        case CMD_VERSION:
             // Clear the Buffer
             std::cout << "\n"
                       << const_ToolKitVersion << "\n"
                       << std::endl;
-        }
+            break;
 
-        // If Not a Valid Command
-        else if (menuInput != "")
-        {
+        case CMD_EXIT:
+            std::cout << "Exiting...\n";
+            return 0;
+
+        default:
             // Clear the Buffer
-            std::cout << "\nToolKit ++: command not found: " << menuInput << "\n"
+            std::cout << "\nToolKit ++: command not found: " << originalUserInput << "\n"
                       << std::endl;
         }
 
