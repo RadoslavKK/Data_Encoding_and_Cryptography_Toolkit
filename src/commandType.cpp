@@ -17,6 +17,9 @@ CommandType getCommandType(const std::string& input)
     if (input == "hex")         return CMD_HEX;
     if (input == "test")        return CMD_TEST;
     if (input == "keycompare")  return CMD_KEYCOMPARE;
+    if (input == "randomkey")   return CMD_GENERATE_RANDOM_KEY;
+    if (input == "randomkey62") return CMD_GENERATE_BASE62_KEY;
+    if (input == "randomkey64") return CMD_GENERATE_BASE64_KEY;
 
     return CMD_UNKNOWN;
 }

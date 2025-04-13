@@ -168,6 +168,10 @@ int main(int argc, char *argv[])
         // Translate User Command Input to ENUM
         CommandType command = getCommandType(menuInput);
 
+        // Constands for randomBase62 and randomBase64 key Generator
+        const unsigned short baseCode62 = 62;
+        const unsigned short baseCode64 = 64;
+
         switch (command)
         {
         case CMD_EMPTY:
@@ -219,6 +223,18 @@ int main(int argc, char *argv[])
 
         case CMD_KEYCOMPARE:
             keyOption.keyComapare();
+            break;
+
+        case CMD_GENERATE_RANDOM_KEY:
+            keyOption.generateRandomKey();
+            break;
+
+        case CMD_GENERATE_BASE62_KEY:
+            keyOption.generateBaseCodeKey(baseCode62);
+            break;
+
+        case CMD_GENERATE_BASE64_KEY:
+            keyOption.generateBaseCodeKey(baseCode64);
             break;
 
         case CMD_VERSION:

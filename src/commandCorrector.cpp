@@ -270,6 +270,90 @@ std::map<std::string, std::string> createCommandCorrections()
     map["deocde64"] = "decode64";
     map["decoed64"] = "decode64";
 
+    // randomkey
+    map["randomkey"] = "randomkey";
+    map["random key"] = "randomkey";
+    map["randkey"] = "randomkey";
+    map["rand key"] = "randomkey";
+    map["rndkey"] = "randomkey";
+    map["rnd key"] = "randomkey";
+    map["rkey"] = "randomkey";
+    map["keyrandom"] = "randomkey";
+    map["key random"] = "randomkey";
+    map["randomk"] = "randomkey";
+    map["randoomkey"] = "randomkey";
+    map["randomekey"] = "randomkey";
+    map["randomky"] = "randomkey";
+    map["randomke"] = "randomkey";
+    map["rendomkey"] = "randomkey";
+    map["ramdomkey"] = "randomkey";
+    map["radnomkey"] = "randomkey";
+    map["rnadomkey"] = "randomkey";
+    map["randmkey"] = "randomkey";
+    map["ranomkey"] = "randomkey";
+    map["ranodmkey"] = "randomkey";
+    map["rndmkey"] = "randomkey";
+    map["randkeygen"] = "randomkey";
+    map["randomkgen"] = "randomkey";
+    map["randkey64"] = "randomkey";
+    map["randomkey64"] = "randomkey";
+
+    // randomkey62
+    map["randomkey62"] = "randomkey62";
+    map["random key 62"] = "randomkey62";
+    map["randkey62"] = "randomkey62";
+    map["rand key 62"] = "randomkey62";
+    map["rndkey62"] = "randomkey62";
+    map["rnd key 62"] = "randomkey62";
+    map["rkey62"] = "randomkey62";
+    map["keyrandom62"] = "randomkey62";
+    map["key random 62"] = "randomkey62";
+    map["randomk62"] = "randomkey62";
+    map["randoomkey62"] = "randomkey62";
+    map["randomekey62"] = "randomkey62";
+    map["randomky62"] = "randomkey62";
+    map["randomke62"] = "randomkey62";
+    map["rendomkey62"] = "randomkey62";
+    map["ramdomkey62"] = "randomkey62";
+    map["radnomkey62"] = "randomkey62";
+    map["rnadomkey62"] = "randomkey62";
+    map["randmkey62"] = "randomkey62";
+    map["ranomkey62"] = "randomkey62";
+    map["ranodmkey62"] = "randomkey62";
+    map["rndmkey62"] = "randomkey62";
+    map["randkeygen62"] = "randomkey62";
+    map["randomkgen62"] = "randomkey62";
+    map["randkey6264"] = "randomkey62";
+    map["randomkey6264"] = "randomkey62";
+
+    // randomkey64
+    map["randomkey64"] = "randomkey64";
+    map["random key 64"] = "randomkey64";
+    map["randkey64"] = "randomkey64";
+    map["rand key 64"] = "randomkey64";
+    map["rndkey64"] = "randomkey64";
+    map["rnd key 64"] = "randomkey64";
+    map["rkey64"] = "randomkey64";
+    map["keyrandom64"] = "randomkey64";
+    map["key random 64"] = "randomkey64";
+    map["randomk64"] = "randomkey64";
+    map["randoomkey64"] = "randomkey64";
+    map["randomekey64"] = "randomkey64";
+    map["randomky64"] = "randomkey64";
+    map["randomke64"] = "randomkey64";
+    map["rendomkey64"] = "randomkey64";
+    map["ramdomkey64"] = "randomkey64";
+    map["radnomkey64"] = "randomkey64";
+    map["rnadomkey64"] = "randomkey64";
+    map["randmkey64"] = "randomkey64";
+    map["ranomkey64"] = "randomkey64";
+    map["ranodmkey64"] = "randomkey64";
+    map["rndmkey64"] = "randomkey64";
+    map["randkeygen64"] = "randomkey64";
+    map["randomkgen64"] = "randomkey64";
+    map["randkey6464"] = "randomkey64";
+    map["randomkey6464"] = "randomkey64";
+
     return map;
 }
 

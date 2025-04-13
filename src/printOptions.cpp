@@ -5,19 +5,22 @@ void printMenu()
 {
   std::cout << "\n|================================ Main Menu ================================|\n"
             << "|                                                                           |\n"
-            << "| menu       -> Menu                                                        |\n"
-            << "| help       -> Detailed help guide with explanations.                      |\n"
-            << "| all        -> List all Command Alternatives                               |\n"
-            << "| time       -> Time & Date.                                                |\n"
-            << "| encode62   -> Base62 Encode a String                                      |\n"
-            << "| encode64   -> Base64 Encode a String                                      |\n"
-            << "| decode64   -> Base64 Decode a String                                      |\n"
-            << "| keycomapre -> Compare two keys for equality                               |\n"
-            << "| binary     -> Convert Binary to DEC, HEX, or OCT                          |\n"
-            << "| clear      -> Clear the terminal screen                                   |\n"
-            << "| test       -> Run Base64 encoding test                                    |\n"
-            << "| version    -> Show Encoding Toolkit++ version number                      |\n"
-            << "| exit       -> Exit the program                                            |\n"
+            << "| menu         -> Menu                                                      |\n"
+            << "| help         -> Detailed help guide with explanations.                    |\n"
+            << "| all          -> List all Command Alternatives                             |\n"
+            << "| time         -> Time & Date.                                              |\n"
+            << "| encode62     -> Base62 Encode a String                                    |\n"
+            << "| encode64     -> Base64 Encode a String                                    |\n"
+            << "| decode64     -> Base64 Decode a String                                    |\n"
+            << "| keycomapre   -> Compare two keys for equality                             |\n"
+            << "| randomkey    -> Generate a secure random key                              |\n"
+            << "| randomkey62  -> Generate a secure random key using Base62 encoding        |\n"
+            << "| randomkey64  -> Generate a secure random key using Base64 encoding        |\n"
+            << "| binary       -> Convert Binary to DEC, HEX, or OCT                        |\n"
+            << "| clear        -> Clear the terminal screen                                 |\n"
+            << "| test         -> Run Base64 encoding test                                  |\n"
+            << "| version      -> Show Encoding Toolkit++ version number                    |\n"
+            << "| exit         -> Exit the program                                          |\n"
             << "|                                                                           |\n"
             << "|===========================================================================|\n\n";
 }
@@ -40,6 +43,15 @@ void printHelp()
             << "|                                                                           |\n"
             << "| keycomapre -> Compare two user-input keys to check if they are equal.     |\n"
             << "|              Whitespace-sensitive. Useful for validating user input.      |\n"
+            << "|                                                                           |\n"
+            << "| randomkey  -> Generate a secure random key for use in encryption.         |\n"
+            << "|              Example: 'randomkey' => 'aBc123XyZ7!k9D0...'                 |\n"
+            << "|                                                                           |\n"
+            << "| randomkey62 -> Generate a secure random key using Base62 encoding.        |\n"
+            << "|              Example: 'randomkey62' => 'Lk3GxH1PNa4xHq9T7z8V'             |\n"
+            << "|                                                                           |\n"
+            << "| randomkey64 -> Generate a secure random key using Base64 encoding.        |\n"
+            << "|              Example: 'randomkey64' => 'YTIyNDcxMjk0b2lXdTY3LkA9'         |\n"
             << "|                                                                           |\n"
             << "| binary     -> Convert binary numbers to decimal, hexadecimal, or octal.   |\n"
             << "|              Example: '0b1010' => DEC: 10, HEX: A, OCT: 12                |\n"
@@ -71,6 +83,9 @@ void printAllCommands()
             << "| encode64                 -> Encode a string to Base64                     |\n"
             << "| decode64                 -> Decode a Base64 string                        |\n"
             << "| keycompare, comparekey   -> Compare two keys to check if they are equal   |\n"
+            << "| randomkey                -> Generate a secure random key                  |\n"
+            << "| randomkey62              -> Generate a secure random key using Base62     |\n"
+            << "| randomkey64              -> Generate a secure random key using Base64     |\n"
             << "| binary                   -> Convert binary to dec/hex/oct                 |\n"
             // << "| isbinary                 -> Check if a string is binary                   |\n" Add soon.
             << "| clear, cls, clx, clean   -> Clear the screen                              |\n"
@@ -179,6 +194,55 @@ void printAllCommands()
   std::cout << "|                     | keycmps, cmpkeys, keycmprs |                            |\n";
   std::cout << "|                     | cmparekeys, keycmprkeys,   |                            |\n";
   std::cout << "|                     | cmparekey, keycmp          |                            |\n";
+  std::cout << "|                     |                            |                            |\n";
+
+  // Printing RandomKey Mappings
+  std::cout << "| Random Key          | randomkey, random key,     | randomkey                  |\n";
+  std::cout << "|                     | randkey, rand key,         |                            |\n";
+  std::cout << "|                     | rndkey, rnd key,           |                            |\n";
+  std::cout << "|                     | rkey, keyrandom,           |                            |\n";
+  std::cout << "|                     | key random, randomk,       |                            |\n";
+  std::cout << "|                     | randoomkey, randomekey,    |                            |\n";
+  std::cout << "|                     | randomky, randomke,        |                            |\n";
+  std::cout << "|                     | rendomkey, ramdomkey,      |                            |\n";
+  std::cout << "|                     | radnomkey, rnadomkey,      |                            |\n";
+  std::cout << "|                     | randmkey, ranomkey,        |                            |\n";
+  std::cout << "|                     | ranodmkey, rndmkey,        |                            |\n";
+  std::cout << "|                     | randkeygen, randomkgen,    |                            |\n";
+  std::cout << "|                     | randkey64, randomkey64,    |                            |\n";
+  std::cout << "|                     |                            |                            |\n";
+
+  // Printing RandomKey62 Mappings
+  std::cout << "| Random Key 62       | randomkey62, random key 62,| randomkey62                |\n";
+  std::cout << "|                     | randkey62, rand key 62,    |                            |\n";
+  std::cout << "|                     | rndkey62, rnd key 62,      |                            |\n";
+  std::cout << "|                     | rkey62, keyrandom62,       |                            |\n";
+  std::cout << "|                     | key random 62, randomk62,  |                            |\n";
+  std::cout << "|                     | randoomkey62, randomekey62,|                            |\n";
+  std::cout << "|                     | randomky62, randomke62,    |                            |\n";
+  std::cout << "|                     | rendomkey62, ramdomkey62,  |                            |\n";
+  std::cout << "|                     | radnomkey62, rnadomkey62,  |                            |\n";
+  std::cout << "|                     | randmkey62, ranomkey62,    |                            |\n";
+  std::cout << "|                     | ranodmkey62, rndmkey62,    |                            |\n";
+  std::cout << "|                     | randkeygen62, randomkgen62,|                            |\n";
+  std::cout << "|                     | randkey6264, randomkey6264,|                            |\n";
+  std::cout << "|                     |                            |                            |\n";
+
+  // Printing RandomKey64 Mappings
+  std::cout << "| Random Key 64       | randomkey64, random key 64,| randomkey64                |\n";
+  std::cout << "|                     | randkey64, rand key 64,    |                            |\n";
+  std::cout << "|                     | rndkey64, rnd key 64,      |                            |\n";
+  std::cout << "|                     | rkey64, keyrandom64,       |                            |\n";
+  std::cout << "|                     | key random 64, randomk64,  |                            |\n";
+  std::cout << "|                     | randoomkey64, randomekey64,|                            |\n";
+  std::cout << "|                     | randomky64, randomke64,    |                            |\n";
+  std::cout << "|                     | rendomkey64, ramdomkey64,  |                            |\n";
+  std::cout << "|                     | radnomkey64, rnadomkey64,  |                            |\n";
+  std::cout << "|                     | randmkey64, ranomkey64,    |                            |\n";
+  std::cout << "|                     | ranodmkey64, rndmkey64,    |                            |\n";
+  std::cout << "|                     | randkeygen64, randomkgen64,|                            |\n";
+  std::cout << "|                     | randkey6464, randomkey6464,|                            |\n";
+  std::cout << "|                     |                            |                            |\n";
 
   // Printing Encode62 Mappings
   std::cout << "| Encode62            | encode62, encod62,         | encode62                   |\n";
