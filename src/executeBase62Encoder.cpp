@@ -56,9 +56,9 @@ void executeBase62Encoder()
     std::cout << "\n\"" << inputText << "\" to Base62 : \"" << outputText << "\"\n"
               << std::endl;
 
-    result = "";
-    inputText = "";
-    outputText = "";
-    filePath = "";
+    result.clear();
+    inputText.clear();
+    outputText.clear();
+    filePath.clear();
     key = false;
 }

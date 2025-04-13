@@ -148,6 +148,54 @@ std::map<std::string, std::string> createCommandCorrections()
     map["hec"] = "hex";
     map["hexr"] = "hex";
 
+    // keycompare
+    map["keycompare"] = "keycompare";
+    map["comparekey"] = "keycompare";
+    map["key compare"] = "keycompare";
+    map["compare key"] = "keycompare";
+    map["keycompare"] = "keycompare";
+    map["comparekey"] = "keycompare";
+    map["keycomapre"] = "keycompare";
+    map["keycopmare"] = "keycompare";
+    map["keycompaer"] = "keycompare";
+    map["kyecompare"] = "keycompare";
+    map["kyecomapre"] = "keycompare";
+    map["keycmopare"] = "keycompare";
+    map["kepcompare"] = "keycompare";
+    map["compareky"] = "keycompare";
+    map["compaerkey"] = "keycompare";
+    map["comaprekey"] = "keycompare";
+    map["comaparekey"] = "keycompare";
+    map["keycmpr"] = "keycompare";
+    map["keycmp"] = "keycompare";
+    map["cmpkey"] = "keycompare";
+    map["keycmpare"] = "keycompare";
+    map["cmparekey"] = "keycompare";
+    map["keycmprkey"] = "keycompare";
+    map["keycompares"] = "keycompare";
+    map["comparekeys"] = "keycompare";
+    map["key compares"] = "keycompare";
+    map["compare keys"] = "keycompare";
+    map["keycomapres"] = "keycompare";
+    map["comparekeys"] = "keycompare";
+    map["keycomapres"] = "keycompare";
+    map["keycopmares"] = "keycompare";
+    map["keycompaers"] = "keycompare";
+    map["kyecompares"] = "keycompare";
+    map["kyecomapres"] = "keycompare";
+    map["keycmopares"] = "keycompare";
+    map["kepcompares"] = "keycompare";
+    map["comparekys"] = "keycompare";
+    map["compaerkeys"] = "keycompare";
+    map["comaprekeys"] = "keycompare";
+    map["comaparekeys"] = "keycompare";
+    map["keycmprs"] = "keycompare";
+    map["keycmps"] = "keycompare";
+    map["cmpkeys"] = "keycompare";
+    map["keycmpares"] = "keycompare";
+    map["cmparekeys"] = "keycompare";
+    map["keycmprkeys"] = "keycompare";
+
     // encode62
     map["encode62"] = "encode62";
     map["encod62"] = "encode62";
@@ -158,10 +206,25 @@ std::map<std::string, std::string> createCommandCorrections()
     map["encode62x"] = "encode62";
     map["encode62y"] = "encode62";
     map["encode62z"] = "encode62";
+    map["encode62"] = "encode62";
+    map["encod62"] = "encode62";
+    map["encdoe62"] = "encode62";
+    map["enc62"] = "encode62";
+    map["62encode"] = "encode62";
+    map["62 encode"] = "encode62";
+    map["encode 62"] = "encode62";
+    map["en62"] = "encode62";
+    map["enccode62"] = "encode62";
+    map["encide62"] = "encode62";
+    map["enocde62"] = "encode62";
 
     // encode64
     map["encode64"] = "encode64";
+    map["64encode"] = "encode64";
+    map["64 encode"] = "encode64";
     map["encod64"] = "encode64";
+    map["encode 64"] = "encode64";
+    map["encod 64"] = "encode64";
     map["encode64s"] = "encode64";
     map["encod64"] = "encode64";
     map["encode6"] = "encode64";
@@ -169,9 +232,23 @@ std::map<std::string, std::string> createCommandCorrections()
     map["encode64x"] = "encode64";
     map["encode64y"] = "encode64";
     map["encode64z"] = "encode64";
+    map["encode64"] = "encode64";
+    map["encod64"] = "encode64";
+    map["encdoe64"] = "encode64";
+    map["enc64"] = "encode64";
+    map["64encode"] = "encode64";
+    map["64 encode"] = "encode64";
+    map["encode 64"] = "encode64";
+    map["en64"] = "encode64";
+    map["endcode64"] = "encode64";
+    map["enccode64"] = "encode64";
+    map["encide64"] = "encode64";
+    map["encdoe64"] = "encode64";
+    map["enocde64"] = "encode64";
 
     // decode64
     map["decode64"] = "decode64";
+    map["decode 64"] = "decode64";
     map["decod64"] = "decode64";
     map["decode64s"] = "decode64";
     map["decod64"] = "decode64";
@@ -180,6 +257,18 @@ std::map<std::string, std::string> createCommandCorrections()
     map["decode64x"] = "decode64";
     map["decode64y"] = "decode64";
     map["decode64z"] = "decode64";
+    map["decode64"] = "decode64";
+    map["decod64"] = "decode64";
+    map["decdoe64"] = "decode64";
+    map["dec64"] = "decode64";
+    map["64decode"] = "decode64";
+    map["64 decode"] = "decode64";
+    map["decode 64"] = "decode64";
+    map["dec64"] = "decode64";
+    map["decocde64"] = "decode64";
+    map["decide64"] = "decode64";
+    map["deocde64"] = "decode64";
+    map["decoed64"] = "decode64";
 
     return map;
 }

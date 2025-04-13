@@ -20,7 +20,8 @@ enum CommandType
     CMD_HEX,
     CMD_ISBINARY,
     CMD_TEST,
-    CMD_UNKNOWN
+    CMD_UNKNOWN,
+    CMD_KEYCOMPARE
 };
 
 // Maps User Command Input to  ENUM

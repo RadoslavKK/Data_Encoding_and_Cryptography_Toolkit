@@ -102,9 +102,9 @@ void executeBase64Test()
                   << std::endl; // Red for Failed
     }
 
-    inputText = "";
-    outputText = "";
-    result = "";
-    filePath = "";
+    inputText.clear();
+    outputText.clear();
+    result.clear();
+    filePath.clear();
     key = false;
 }

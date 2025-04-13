@@ -58,9 +58,9 @@ void executeBase64Encoder()
     std::cout << "\n\"" << inputText << "\" to Base64 : \"" << outputText << "\"\n"
               << std::endl;
 
-    inputText = "";
-    outputText = "";
-    result = "";
-    filePath = "";
+    inputText.clear();
+    outputText.clear();
+    result.clear();
+    filePath.clear();
     key = false;
 }

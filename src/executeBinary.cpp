@@ -34,5 +34,5 @@ void executeBinary()
 
     binaryConvertor(inputText);
 
-    inputText = "";
+    inputText.clear();
 }

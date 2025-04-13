@@ -55,9 +55,9 @@ void executeBase64Decoder()
     std::cout << "\nFrom Base64 : \"" << inputText << "\" to Readable : \"" << outputText << "\"\n"
               << std::endl;
 
-    result = "";
-    outputText = "";
-    inputText = "";
-    filePath = "";
+    result.clear();
+    outputText.clear();
+    inputText.clear();
+    filePath.clear();
     key = false;
 }

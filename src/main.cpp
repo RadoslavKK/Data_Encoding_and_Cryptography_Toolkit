@@ -62,6 +62,9 @@ ____________________________ How to Run the Program. ___________________________
 // Star Hex
 #include "executeHex.h"
 
+// Comapre Two Keys
+#include "keyOptions.h"
+
 int main(int argc, char *argv[])
 {
     const std::string const_ToolKitVersion = "Encoding ToolKit++ Ver. 2.0.0 -beta.1";
@@ -79,6 +82,9 @@ int main(int argc, char *argv[])
 
     // Create obj to Remove White Space
     StringFormatter remover;
+
+    // Create obj for KeyOptions
+    KeyOptions keyOption;
 
     // ____________________________ Program Print Config Options ____________________________
 
@@ -144,7 +150,7 @@ int main(int argc, char *argv[])
     do
     {
         std::cout << ">>> ";
-        menuInput = "";
+        menuInput.clear();
 
         std::getline(std::cin, menuInput);
 
@@ -209,6 +215,10 @@ int main(int argc, char *argv[])
 
         case CMD_TEST:
             executeBase64Test();
+            break;
+
+        case CMD_KEYCOMPARE:
+            keyOption.keyComapare();
             break;
 
         case CMD_VERSION:

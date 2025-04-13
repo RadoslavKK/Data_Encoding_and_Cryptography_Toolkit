@@ -33,5 +33,5 @@ void executeHex()
 
     hexConverter(inputText);
 
-    inputText = "";
+    inputText.clear();
 }
