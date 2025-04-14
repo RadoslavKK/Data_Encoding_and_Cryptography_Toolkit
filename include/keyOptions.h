@@ -8,7 +8,7 @@ class KeyOptions
 public:
    void keyComapare();
    void generateRandomKey();
-   void generateBaseCodeKey(unsigned short baseCode);
+   void generateBaseCodeKey(const unsigned short& baseCode);
 };
 
 #endif

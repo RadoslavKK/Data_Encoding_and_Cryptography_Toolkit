@@ -175,7 +175,7 @@ void KeyOptions::generateRandomKey()
     filePath.clear();
 }
 
-void KeyOptions::generateBaseCodeKey(unsigned short baseCode)
+void KeyOptions::generateBaseCodeKey(const unsigned short &baseCode)
 {
     const unsigned short keyLength = baseCode;
 
