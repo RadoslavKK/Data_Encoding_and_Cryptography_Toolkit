@@ -16,6 +16,7 @@ enum CommandType
     CMD_ENCODE62,
     CMD_ENCODE64,
     CMD_DECODE64,
+    CMD_SHA256,
     CMD_BINARY,
     CMD_HEX,
     CMD_ISBINARY,
@@ -24,7 +25,8 @@ enum CommandType
     CMD_KEYCOMPARE,
     CMD_GENERATE_RANDOM_KEY,
     CMD_GENERATE_BASE62_KEY,
-    CMD_GENERATE_BASE64_KEY
+    CMD_GENERATE_BASE64_KEY,
+    CMD_MENU_CURSOR
 };
 
 // Maps User Command Input to  ENUM

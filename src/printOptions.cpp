@@ -12,6 +12,7 @@ void printMenu()
             << "| encode62     -> Base62 Encode a String                                    |\n"
             << "| encode64     -> Base64 Encode a String                                    |\n"
             << "| decode64     -> Base64 Decode a String                                    |\n"
+            << "| sha256       -> Generate SHA-256 hash of a string                         |\n"
             << "| keycomapre   -> Compare two keys for equality                             |\n"
             << "| randomkey    -> Generate a secure random key                              |\n"
             << "| randomkey62  -> Generate a secure random key using Base62 encoding        |\n"
@@ -19,6 +20,7 @@ void printMenu()
             << "| binary       -> Convert Binary to DEC, HEX, or OCT                        |\n"
             << "| clear        -> Clear the terminal screen                                 |\n"
             << "| test         -> Run Base64 encoding test                                  |\n"
+            << "| cursor       -> Change the menu cursor '>>> '                             |\n"
             << "| version      -> Show Encoding Toolkit++ version number                    |\n"
             << "| exit         -> Exit the program                                          |\n"
             << "|                                                                           |\n"
@@ -41,6 +43,9 @@ void printHelp()
             << "| decode64   -> Decode a Base64-encoded string back to its original form.   |\n"
             << "|              Example: 'aGVsbG8=' => 'hello'                               |\n"
             << "|                                                                           |\n"
+            << "| sha256     -> Generate a SHA-256 cryptographic hash of input text.        |\n"
+            << "|              Example: 'hello' => '2cf24dba5fb0a30e26e83b2ac5b9e29e...'    |\n"
+            << "|                                                                           |\n"
             << "| keycomapre -> Compare two user-input keys to check if they are equal.     |\n"
             << "|              Whitespace-sensitive. Useful for validating user input.      |\n"
             << "|                                                                           |\n"
@@ -59,7 +64,10 @@ void printHelp()
             // << "| isbinary   -> Check whether a string is a valid binary sequence.          |\n"
             // << "|              Accepts '0b' or 'ob' prefixes (e.g., 0b1101).                |\n"
             // << "|                                                                           |\n"
-            << "| clear      -> Clears the screen. Also accepts: 'cls', 'clean', etc.       |\n"
+            << "| cursor     -> Change the cursor used in the menu                          |\n"
+            << "|               Example: '>>> ' => 'C:\\ '                                   |\n"
+            << "|                                                                           |\n"
+            << "| clear      -> Clears the screen. Also accepts: 'cls', 'clean', etc.       |\n"       
             << "| test       -> Run a Base64 encode/decode test to validate functionality.  |\n"
             << "| version    -> Print the version number of Encoding Toolkit++.             |\n"
             << "| exit       -> Exit the program safely.                                    |\n"
@@ -73,30 +81,6 @@ void printHelp()
 
 void printAllCommands()
 {
-  std::cout << "\n|======================== Command Alternatives =============================|\n"
-            << "|                                                                           |\n"
-            << "| menu                     -> Show the main menu                            |\n"
-            << "| help                     -> Show help and usage                           |\n"
-            << "| all                      -> Show all available commands                   |\n"
-            << "| time, date               -> Show the current time and date                |\n"
-            << "| encode62                 -> Encode a string to Base62                     |\n"
-            << "| encode64                 -> Encode a string to Base64                     |\n"
-            << "| decode64                 -> Decode a Base64 string                        |\n"
-            << "| keycompare, comparekey   -> Compare two keys to check if they are equal   |\n"
-            << "| randomkey                -> Generate a secure random key                  |\n"
-            << "| randomkey62              -> Generate a secure random key using Base62     |\n"
-            << "| randomkey64              -> Generate a secure random key using Base64     |\n"
-            << "| binary                   -> Convert binary to dec/hex/oct                 |\n"
-            // << "| isbinary                 -> Check if a string is binary                   |\n" Add soon.
-            << "| clear, cls, clx, clean   -> Clear the screen                              |\n"
-            << "| test                     -> Run base64 encoding test                      |\n"
-            << "| version                  -> Show version number                           |\n"
-            << "| exit, out                -> Exit the program                              |\n"
-            << "|                                                                           |\n"
-            << "|===========================================================================|\n\n";
-
-  std::cout << "\n\n";
-
   // Output in a table
   std::cout << "\n|============================= Command Mappings ================================|\n";
   std::cout << "| Type                | Incorrect Input            | Correct Command            |\n";
@@ -270,6 +254,24 @@ void printAllCommands()
   std::cout << "|                     | decode64x, decode64y,      |                            |\n";
   std::cout << "|                     | decode64, decod64, decdoe64|                            |\n";
   std::cout << "|                     | dec64, 64decode, 64 decode |                            |\n";
+  std::cout << "|                     |                            |                            |\n";
+
+  std::cout << "| SHA256              | sha256, sha 256, sh256,    | sha256                     |\n";
+  std::cout << "|                     | shas256, sha2256, sha265,  |                            |\n";
+  std::cout << "|                     | sha25, shaa256, shaa 256,  |                            |\n";
+  std::cout << "|                     | sha256x, sha256y, sha256z, |                            |\n";
+  std::cout << "|                     | sh256a, shaz256, shsa256,  |                            |\n";
+  std::cout << "|                     | has256, hsa256, sa256,     |                            |\n";
+  std::cout << "|                     | sah256                     |                            |\n";
+  std::cout << "|                     |                            |                            |\n";
+
+  std::cout << "| CURSOR              | cursor, cur sor, crusor,   | cursor                     |\n";
+  std::cout << "|                     | curser, kursur, kursor,    |                            |\n";
+  std::cout << "|                     | corsur, curzor, corsor,    |                            |\n";
+  std::cout << "|                     | coursor, curor, cursr,     |                            |\n";
+  std::cout << "|                     | cusor, cursur, curzor64,   |                            |\n";
+  std::cout << "|                     | cursor64, cursorgen,       |                            |\n";
+  std::cout << "|                     | cursor generator           |                            |\n";
   std::cout << "|                     |                            |                            |\n";
 
   std::cout << "|===============================================================================|\n"

@@ -63,6 +63,9 @@ ____________________________ How to Run the Program. ___________________________
 // Star a Base64 Encode & Decoder Test
 #include "executeBase64Test.h"
 
+// Star SHA256 Hash
+#include "executeSha256.h"
+
 // Start Binary to Oct, Dec, Hex Convertor
 #include "executeBinary.h"
 
@@ -72,9 +75,12 @@ ____________________________ How to Run the Program. ___________________________
 // Comapre Two Keys
 #include "keyOptions.h"
 
+// Change Menu Cursor ">>> "
+#include "cursorOptions.h"
+
 int main(int argc, char *argv[])
 {
-    const std::string const_ToolKitVersion = "Encoding ToolKit++ Ver. 2.0.0 -beta.1";
+    const std::string const_ToolKitVersion = "Encoding ToolKit++ Ver. 2.3.0 -beta.1";
 
     // ____________________________ Set key file paths. ____________________________
     FilePathManager::getInstance().setBase64KeyPath("/Users/radoslavkostov/Documents/Repositories/C++/EncodingToolkit++/keys/base64Key.txt");
@@ -154,9 +160,11 @@ int main(int argc, char *argv[])
     // Store Original User Input for Menu Options Before : White Space Remover & To Lower Case
     std::string originalUserInput = "";
 
+    std::string menuCourser = ">>> ";
+
     do
     {
-        std::cout << ">>> ";
+        std::cout << menuCourser;
         menuInput.clear();
 
         std::getline(std::cin, menuInput);
@@ -216,6 +224,10 @@ int main(int argc, char *argv[])
             executeBase64Decoder();
             break;
 
+        case CMD_SHA256:
+            executeSha256();
+            break;
+
         case CMD_BINARY:
             executeBinary();
             break;
@@ -249,6 +261,10 @@ int main(int argc, char *argv[])
             std::cout << "\n"
                       << const_ToolKitVersion << "\n"
                       << std::endl;
+            break;
+
+        case CMD_MENU_CURSOR:
+            menuCourser = changeCursor(menuCourser);
             break;
 
         case CMD_EXIT:

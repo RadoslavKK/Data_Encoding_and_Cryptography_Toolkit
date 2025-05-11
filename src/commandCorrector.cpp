@@ -270,6 +270,34 @@ std::map<std::string, std::string> createCommandCorrections()
     map["deocde64"] = "decode64";
     map["decoed64"] = "decode64";
 
+    // sha256
+    map["sha256"] = "sha256";
+    map["sha 256"] = "sha256";
+    map["sh256"] = "sha256";
+    map["shas256"] = "sha256";
+    map["sha2256"] = "sha256";
+    map["sha265"] = "sha256";
+    map["sha25"] = "sha256";
+    map["shaa256"] = "sha256";
+    map["shaa 256"] = "sha256";
+    map["sha256x"] = "sha256";
+    map["sha256y"] = "sha256";
+    map["sha256z"] = "sha256";
+    map["sh256a"] = "sha256";
+    map["shaz256"] = "sha256";
+    map["shsa256"] = "sha256";
+    map["has256"] = "sha256";
+    map["hsa256"] = "sha256";
+    map["sa256"] = "sha256";
+    map["sah256"] = "sha256";
+    map["shah256"] = "sha256";
+    map["sh256h"] = "sha256";
+    map["sha2 56"] = "sha256";
+    map["sha-256"] = "sha256";
+    map["sh-a256"] = "sha256";
+    map["sha_256"] = "sha256";
+    map["sh_a256"] = "sha256";
+
     // randomkey
     map["randomkey"] = "randomkey";
     map["random key"] = "randomkey";
@@ -353,6 +381,28 @@ std::map<std::string, std::string> createCommandCorrections()
     map["randomkgen64"] = "randomkey64";
     map["randkey6464"] = "randomkey64";
     map["randomkey6464"] = "randomkey64";
+
+    // cursor
+    map["cursor"] = "cursor";
+    map["cur sor"] = "cursor";
+    map["crusor"] = "cursor";
+    map["curser"] = "cursor";
+    map["kursur"] = "cursor";
+    map["kursor"] = "cursor";
+    map["corsur"] = "cursor";
+    map["curzor"] = "cursor";
+    map["corsor"] = "cursor";
+    map["coursor"] = "cursor";
+    map["curor"] = "cursor";
+    map["cursr"] = "cursor";
+    map["cusor"] = "cursor";
+    map["cursur"] = "cursor";
+    map["curzor64"] = "cursor"; // in case of misused suffix
+    map["cursor64"] = "cursor";
+    map["cursorgen"] = "cursor";
+    map["cursor generator"] = "cursor";
+    map["cursorgen"] = "cursor";
+    map["cur sor gen"] = "cursor";
 
     return map;
 }

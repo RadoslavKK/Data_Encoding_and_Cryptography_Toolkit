@@ -13,6 +13,7 @@ CommandType getCommandType(const std::string& input)
     if (input == "encode62")    return CMD_ENCODE62;
     if (input == "encode64")    return CMD_ENCODE64;
     if (input == "decode64")    return CMD_DECODE64;
+    if (input == "sha256")      return CMD_SHA256;
     if (input == "binary")      return CMD_BINARY;
     if (input == "hex")         return CMD_HEX;
     if (input == "test")        return CMD_TEST;
@@ -20,6 +21,7 @@ CommandType getCommandType(const std::string& input)
     if (input == "randomkey")   return CMD_GENERATE_RANDOM_KEY;
     if (input == "randomkey62") return CMD_GENERATE_BASE62_KEY;
     if (input == "randomkey64") return CMD_GENERATE_BASE64_KEY;
+    if (input == "cursor")      return CMD_MENU_CURSOR;
 
     return CMD_UNKNOWN;
 }
