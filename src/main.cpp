@@ -57,7 +57,7 @@ ____________________________ How to Run the Program. ___________________________
 // Start Base62 Decoder
 #include "base62/executeBase62Decoder.h"
 
-// Star a Base62 Encode & Decoder Test
+// Start a Base62 Encode & Decoder Test
 #include "base62/executeBase62Test.h"
 
 // Start Base64 Encoder
@@ -66,16 +66,16 @@ ____________________________ How to Run the Program. ___________________________
 // Start Base64 Decoder
 #include "base64/executeBase64Decoder.h"
 
-// Star a Base64 Encode & Decoder Test
+// Start a Base64 Encode & Decoder Test
 #include "base64/executeBase64Test.h"
 
-// Star SHA256 Hash
+// Start SHA256 Hash
 #include "sha-256/executeSha256.h"
 
 // Start Binary to Oct, Dec, Hex Convertor
 #include "executeBinary.h"
 
-// Star Hex
+// Start Hex
 #include "executeHex.h"
 
 // Comapre Two Keys
