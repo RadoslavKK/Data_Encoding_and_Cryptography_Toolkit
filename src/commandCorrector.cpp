@@ -45,12 +45,19 @@ std::map<std::string, std::string> createCommandCorrections()
     map["a1l"] = "all";
     map["all1"] = "all";
 
-    // test
-    map["test"] = "test";
-    map["test"] = "test";
-    map["ttst"] = "test";
-    map["tst"] = "test";
-    map["tet"] = "test";
+    // test62 enocde/decode Base62
+    map["test62"] = "test62";
+    map["test62"] = "test62";
+    map["ttst62"] = "test62";
+    map["tst62"] = "test62";
+    map["tet62"] = "test62";
+
+    // test64 enocde/decode Base64
+    map["test64"] = "test64";
+    map["test64"] = "test64";
+    map["ttst64"] = "test64";
+    map["tst64"] = "test64";
+    map["tet64"] = "test64";
 
     // exit
     map["exit"] = "exit";
@@ -217,6 +224,28 @@ std::map<std::string, std::string> createCommandCorrections()
     map["enccode62"] = "encode62";
     map["encide62"] = "encode62";
     map["enocde62"] = "encode62";
+
+    // decode62
+    map["decode62"] = "decode62";
+    map["decod62"] = "decode62";
+    map["decode6"] = "decode62";
+    map["decod6"] = "decode62";
+    map["decode62s"] = "decode62";
+    map["decode62x"] = "decode62";
+    map["decode62y"] = "decode62";
+    map["decode62z"] = "decode62";
+    map["decdoe62"] = "decode62";
+    map["deocde62"] = "decode62";
+    map["dec62"] = "decode62";
+    map["62decode"] = "decode62";
+    map["62 decode"] = "decode62";
+    map["decode 62"] = "decode62";
+    map["de62"] = "decode62";
+    map["deccode62"] = "decode62";
+    map["decide62"] = "decode62";
+    map["denocde62"] = "decode62";
+    map["docede62"] = "decode62";
+    map["dedoce62"] = "decode62";
 
     // encode64
     map["encode64"] = "encode64";

@@ -10,6 +10,7 @@ void printMenu()
             << "| all          -> List all Command Alternatives                             |\n"
             << "| time         -> Time & Date.                                              |\n"
             << "| encode62     -> Base62 Encode a String                                    |\n"
+            << "| decode62     -> Base62 Decode a String                                    |\n"
             << "| encode64     -> Base64 Encode a String                                    |\n"
             << "| decode64     -> Base64 Decode a String                                    |\n"
             << "| sha256       -> Generate SHA-256 hash of a string                         |\n"
@@ -19,7 +20,8 @@ void printMenu()
             << "| randomkey64  -> Generate a secure random key using Base64 encoding        |\n"
             << "| binary       -> Convert Binary to DEC, HEX, or OCT                        |\n"
             << "| clear        -> Clear the terminal screen                                 |\n"
-            << "| test         -> Run Base64 encoding test                                  |\n"
+            << "| test62       -> Run Base62 encoding test                                  |\n"
+            << "| test64       -> Run Base64 encoding test                                  |\n"
             << "| cursor       -> Change the menu cursor '>>> '                             |\n"
             << "| version      -> Show Encoding Toolkit++ version number                    |\n"
             << "| exit         -> Exit the program                                          |\n"
@@ -35,7 +37,10 @@ void printHelp()
             << "| help       -> Show this detailed help guide with explanations.            |\n"
             << "|                                                                           |\n"
             << "| encode62   -> Encode a plain text string using Base62 encoding.           |\n"
-            << "|              Example: 'hello' => 'T8dgcjRGuYUueWht'                       |\n"
+            << "|              Example: 'hello' => 'I6LiR6y'                       |\n"
+            << "|                                                                           |\n"
+            << "| decode62   -> Decode a Base62-encoded string back to its original form.   |\n"
+            << "|              Example: 'I6LiR6y' => 'hello'                               |\n"
             << "|                                                                           |\n"
             << "| encode64   -> Encode a plain text string using Base64 encoding.           |\n"
             << "|              Example: 'hello' => 'aGVsbG8='                               |\n"
@@ -67,8 +72,9 @@ void printHelp()
             << "| cursor     -> Change the cursor used in the menu                          |\n"
             << "|               Example: '>>> ' => 'C:\\ '                                   |\n"
             << "|                                                                           |\n"
-            << "| clear      -> Clears the screen. Also accepts: 'cls', 'clean', etc.       |\n"       
-            << "| test       -> Run a Base64 encode/decode test to validate functionality.  |\n"
+            << "| clear      -> Clears the screen. Also accepts: 'cls', 'clean', etc.       |\n"
+            << "| test62     -> Run a Base62 encode/decode test to validate functionality.  |\n"
+            << "| test64     -> Run a Base64 encode/decode test to validate functionality.  |\n"
             << "| version    -> Print the version number of Encoding Toolkit++.             |\n"
             << "| exit       -> Exit the program safely.                                    |\n"
             << "|                                                                           |\n"
@@ -102,8 +108,14 @@ void printAllCommands()
   std::cout << "|                     | awl, alol, all1, a1l,      |                            |\n";
   std::cout << "|                     |                            |                            |\n";
 
-  // Printing Test Mappings
-  std::cout << "| Test                | test, ttst, tst, tet       | test                       |\n";
+  // Printing Test62 Mappings
+  std::cout << "| Test62              | test62, ttst62, tst62,     | test62                       |\n";
+  std::cout << "|                     | tet62                      |                            |\n";
+  std::cout << "|                     |                            |                            |\n";
+
+  // Printing Test64 Mappings
+  std::cout << "| Test64              | test64, ttst64, tst64,     | test64                       |\n";
+  std::cout << "|                     | tet64                      |                            |\n";
   std::cout << "|                     |                            |                            |\n";
 
   // Printing Exit Mappings

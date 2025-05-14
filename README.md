@@ -13,7 +13,7 @@ Future Support for binary-to-hex/dec/oct conversion, key validation, and a custo
 
 ## How to Run:
 
-## 1. Set Base62 & Base64 Key Path in "main.cpp" on Lines 80 & 81
+## 1. Set Base62 & Base64 Key Path in "main.cpp" on Lines 92 & 93
 
    File Names "base62Key.txt" & "base64Key.txt" located in "keys" Folder
 

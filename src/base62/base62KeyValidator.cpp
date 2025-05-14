@@ -1,20 +1,20 @@
-#include "base64KeyValidator.h"
+#include "base62/base62KeyValidator.h"
 #include <iostream>
 #include <stdexcept>
 
-Base64KeyValidator::Base64KeyValidator() {}
+Base62KeyValidator::Base62KeyValidator() {}
 
-bool Base64KeyValidator::validate64(const std::string& key)
+bool Base62KeyValidator::validate62(const std::string& key)
 {
     try
     {
         unsigned short contentLength = static_cast<unsigned short>(key.length());
 
-        // std::cout << "Base64 Key Contents  : \"" << key << "\"" << std::endl;
+        // std::cout << "Base62 Key Contents  : \"" << key << "\"" << std::endl;
 
         switch (contentLength)
         {
-        case 64:
+        case 62:
             return true;
 
         case 0:

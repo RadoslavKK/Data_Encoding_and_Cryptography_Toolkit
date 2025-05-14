@@ -11,12 +11,12 @@
 #include "removeSpaces.h"
 
 // Validate the Base64 Key
-#include "base62KeyValidator.h"
+#include "base62/base62KeyValidator.h"
 
-// Base64 Encoder
-#include "base62Encoder.h"
+// Base62 Decoder
+#include "base62/base62Decoder.h"
 
-void executeBase62Encoder()
+void executeBase62Decoder()
 {
 
     std::string inputText = "";
@@ -47,13 +47,13 @@ void executeBase62Encoder()
         std::cout << "\nNot a Valid Base62 Key\n";
     }
 
-    std::cout << "\nEncode a String to Base62 (Simply enter your data then push the Enter/Return button) : ";
+    std::cout << "\nDecode a Base62 String (Simply enter your Base62 text then push the Enter/Return button) : ";
 
     // Capture user input
     std::getline(std::cin, inputText);
 
-    outputText = base62Encoder(inputText, result);
-    std::cout << "\n\"" << inputText << "\" to Base62 : \"" << outputText << "\"\n"
+    outputText = base62Decoder(inputText, result);
+    std::cout << "\nBase62 \"" << inputText << "\" to Text : \"" << outputText << "\"\n"
               << std::endl;
 
     result.clear();

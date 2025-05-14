@@ -11,14 +11,14 @@
 #include "removeSpaces.h"
 
 // Validate the Base64 Key
-#include "base64KeyValidator.h"
+#include "base64/base64KeyValidator.h"
 
-// Base64 Encoder
-#include "base64Encoder.h"
+// Base64 Decoder function declaration
+#include "base64/base64Decoder.h"  // ✅ Correct header include
 
-void executeBase64Encoder()
+
+void executeBase64Decoder()
 {
-
     std::string inputText = "";
     std::string outputText = "";
     std::string result = "";
@@ -26,13 +26,11 @@ void executeBase64Encoder()
     bool key = false;
 
     filePath = FilePathManager::getInstance().getBase64KeyPath();
-    // std::cout << "File  Path : \"" << filePath << "\"" << std::endl;
 
     FileReader reader;
     result = reader.read(filePath);
     // std::cout << "Base64 File Contents : \"" << result << "\"" << std::endl;
 
-    // Create obj to Remove White Space
     StringFormatter remover;
     result = remover.removeSpaces(result);
     // std::cout << "Base64 File Contents : \"" << result << "\"" << std::endl;
@@ -49,18 +47,18 @@ void executeBase64Encoder()
         std::cout << "\nNot a Valid Base64 Key\n";
     }
 
-    std::cout << "\nEncode a String to Base64 (Simply enter your data then push the Enter/Return button) : ";
+    std::cout << "\nDecode a Base64 String (Simply enter your data then push the Enter/Return button) : ";
 
     // Capture user input
     std::getline(std::cin, inputText);
 
-    outputText = base64Encoder(inputText, result);
-    std::cout << "\n\"" << inputText << "\" to Base64 : \"" << outputText << "\"\n"
+    outputText = base64Decoder(inputText, result);
+    std::cout << "\nFrom Base64 : \"" << inputText << "\" to Readable : \"" << outputText << "\"\n"
               << std::endl;
 
-    inputText.clear();
-    outputText.clear();
     result.clear();
+    outputText.clear();
+    inputText.clear();
     filePath.clear();
     key = false;
 }

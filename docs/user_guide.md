@@ -1,6 +1,6 @@
 ### ____________________________ How to Run the Program. ____________________________
 
-## 1. Set Base62 & Base64 Key Path in "main.cpp" on Lines 80 & 81
+## 1. Set Base62 & Base64 Key Path in "main.cpp" on Lines 92 & 93
 
    File Names "base62Key.txt" & "base64Key.txt" located in "keys" Folder
 

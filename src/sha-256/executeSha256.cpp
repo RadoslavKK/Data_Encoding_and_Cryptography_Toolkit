@@ -1,5 +1,5 @@
-#include "sha256.h"
-#include "executeSha256.h"
+#include "sha-256/sha256.h"
+#include "sha-256/executeSha256.h"
 
 #include <iostream>
 #include <string>

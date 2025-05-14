@@ -1,7 +1,7 @@
 /*
 ____________________________ How to Run the Program. ____________________________
 
-1. Set Base62 & Base64 Key Path in "main.cpp" on Lines 80 & 81
+1. Set Base62 & Base64 Key Path in "main.cpp" on Lines 92 & 93
 
    File Names "base62Key.txt" & "base64Key.txt" located in "keys" Folder
 
@@ -52,19 +52,25 @@ ____________________________ How to Run the Program. ___________________________
 #include "removeSpaces.h"
 
 // Start Base62 Encoder
-#include "executeBase62Encoder.h"
+#include "base62/executeBase62Encoder.h"
+
+// Start Base62 Decoder
+#include "base62/executeBase62Decoder.h"
+
+// Star a Base62 Encode & Decoder Test
+#include "base62/executeBase62Test.h"
 
 // Start Base64 Encoder
-#include "executeBase64Encoder.h"
+#include "base64/executeBase64Encoder.h"
 
 // Start Base64 Decoder
-#include "executeBase64Decoder.h"
+#include "base64/executeBase64Decoder.h"
 
 // Star a Base64 Encode & Decoder Test
-#include "executeBase64Test.h"
+#include "base64/executeBase64Test.h"
 
 // Star SHA256 Hash
-#include "executeSha256.h"
+#include "sha-256/executeSha256.h"
 
 // Start Binary to Oct, Dec, Hex Convertor
 #include "executeBinary.h"
@@ -80,11 +86,14 @@ ____________________________ How to Run the Program. ___________________________
 
 int main(int argc, char *argv[])
 {
-    const std::string const_ToolKitVersion = "Encoding ToolKit++ Ver. 2.3.0 -beta.1";
+    const std::string const_ToolKitVersion = "Encoding ToolKit++ Ver. 2.4.0 -beta.1";
 
     // ____________________________ Set key file paths. ____________________________
-    FilePathManager::getInstance().setBase64KeyPath("/Users/radoslavkostov/Documents/Repositories/C++/EncodingToolkit++/keys/base64Key.txt");
-    FilePathManager::getInstance().setBase62KeyPath("/Users/radoslavkostov/Documents/Repositories/C++/EncodingToolkit++/keys/base62Key.txt");
+    FilePathManager::getInstance().setBase62KeyPath("/Users/radoslavkostov/Desktop/tool/Data_Encoding_and_Cryptography_Toolkit/keys-encoding-alphabet/base62Key.txt");
+    FilePathManager::getInstance().setBase64KeyPath("/Users/radoslavkostov/Desktop/tool/Data_Encoding_and_Cryptography_Toolkit/keys-encoding-alphabet/base64Key.txt");
+
+    //  FilePathManager::getInstance().setBase32KeyPath("/Users/radoslavkostov/Documents/Repositories/C++/EncodingToolkit++/keys-encoding-alphabet/base32Key.txt");
+    //  FilePathManager::getInstance().setBase58KeyPath("/Users/radoslavkostov/Documents/Repositories/C++/EncodingToolkit++/keys-encoding-alphabet/base58Key.txt");
     // ____________________________ Set key file paths. ____________________________
 
     // Create obj to Print current time
@@ -183,7 +192,9 @@ int main(int argc, char *argv[])
         // Translate User Command Input to ENUM
         CommandType command = getCommandType(menuInput);
 
-        // Constands for randomBase62 and randomBase64 key Generator
+        // Constands for randomBase32, randomBase58, randomBase62 and randomBase64 key Generator
+        //   const unsigned short baseCode32 = 32;
+        //   const unsigned short baseCode58 = 58;
         const unsigned short baseCode62 = 62;
         const unsigned short baseCode64 = 64;
 
@@ -216,6 +227,10 @@ int main(int argc, char *argv[])
             executeBase62Encoder();
             break;
 
+        case CMD_DECODE62:
+            executeBase62Decoder();
+            break;
+
         case CMD_ENCODE64:
             executeBase64Encoder();
             break;
@@ -236,7 +251,11 @@ int main(int argc, char *argv[])
             executeHex();
             break;
 
-        case CMD_TEST:
+        case CMD_TEST62:
+            executeBase62Test();
+            break;
+
+        case CMD_TEST64:
             executeBase64Test();
             break;
 

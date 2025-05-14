@@ -17,10 +17,10 @@
 // ______________________________________________________________________________________
 
 // Validate the Base64 Key
-#include "base64KeyValidator.h"
+#include "base64/base64KeyValidator.h"
 
 // Validate the Base62 Key
-#include "base62KeyValidator.h"
+#include "base62/base62KeyValidator.h"
 
 // ______________________________________________________________________________________
 
