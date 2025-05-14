@@ -92,8 +92,9 @@ int main(int argc, char *argv[])
     FilePathManager::getInstance().setBase62KeyPath("/Users/radoslavkostov/Desktop/tool/Data_Encoding_and_Cryptography_Toolkit/keys-encoding-alphabet/base62Key.txt");
     FilePathManager::getInstance().setBase64KeyPath("/Users/radoslavkostov/Desktop/tool/Data_Encoding_and_Cryptography_Toolkit/keys-encoding-alphabet/base64Key.txt");
 
-    //  FilePathManager::getInstance().setBase32KeyPath("/Users/radoslavkostov/Documents/Repositories/C++/EncodingToolkit++/keys-encoding-alphabet/base32Key.txt");
-    //  FilePathManager::getInstance().setBase58KeyPath("/Users/radoslavkostov/Documents/Repositories/C++/EncodingToolkit++/keys-encoding-alphabet/base58Key.txt");
+    // Future Updare fot Base32 and Base58 Encoder and Decoder's
+    // FilePathManager::getInstance().setBase32KeyPath("/Users/radoslavkostov/Documents/Repositories/C++/EncodingToolkit++/keys-encoding-alphabet/base32Key.txt");
+    // FilePathManager::getInstance().setBase58KeyPath("/Users/radoslavkostov/Documents/Repositories/C++/EncodingToolkit++/keys-encoding-alphabet/base58Key.txt");
     // ____________________________ Set key file paths. ____________________________
 
     // Create obj to Print current time
@@ -193,8 +194,11 @@ int main(int argc, char *argv[])
         CommandType command = getCommandType(menuInput);
 
         // Constands for randomBase32, randomBase58, randomBase62 and randomBase64 key Generator
-        //   const unsigned short baseCode32 = 32;
-        //   const unsigned short baseCode58 = 58;
+       
+        // Future Updare fot Base32 and Base58 Encoder and Decoder's
+        //const unsigned short baseCode32 = 32;
+        //const unsigned short baseCode58 = 58;
+       
         const unsigned short baseCode62 = 62;
         const unsigned short baseCode64 = 64;
 
